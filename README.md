@@ -73,7 +73,7 @@ L'entreprise souhaite distribuer des bonus à ses employés en fonction de la da
 
 2. Ajoutez à la classe `Employe` un attribut `double bonus` et une méthode _setter_ `void setBonus(double bonus)`.
  
-3. Ajoutez à la classe `Employe` une méthode `int getMoisAncienneté()` qui renvoient le nombre de mois correspondant à l'intervalle de temps entre la date d'embauche et maintenant. L'ancienneté est calculée sur le nombre de mois **complets** depuis la date d'embauche (un mois complet est compté du 1er au 30/31).
+3. Ajoutez à la classe `Employe` une méthode `int getMoisAnciennete()` qui renvoient le nombre de mois correspondant à l'intervalle de temps entre la date d'embauche et maintenant. L'ancienneté est calculée sur le nombre de mois **complets** depuis la date d'embauche (un mois complet est compté du 1er au 30/31).
     
     **Astuce :** pour calculer l'ancienneté vous pouvez utiliser la classe `ChronoUnit` qui permet d'effectuer des calculs en fonction de différentes unités temporelles (jours, mois, années etc.). Voici un exemple de code qui permet de calculer le nombre de mois entre la date d'embauche et la date d'aujourd'hui :
  
