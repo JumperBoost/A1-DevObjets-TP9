@@ -88,7 +88,7 @@ L'entreprise souhaite distribuer des bonus à ses employés en fonction de la da
     }
     ```
  
-4. Ecrivez plusieurs tests unitaires vérifiant le bon fonctionnement de la méthode `int getMoisAncienneté()` de la classe `Employe`. Vérifiez notamment que deux personnes étant embauchés le même mois de la même année mais à des dates différentes, aient la même ancienneté.
+4. Ecrivez plusieurs tests unitaires vérifiant le bon fonctionnement de la méthode `int getMoisAnciennete()` de la classe `Employe`. Vérifiez notamment que deux personnes étant embauchés le même mois de la même année mais à des dates différentes, aient la même ancienneté.
 
 5. Le patron a décidé de donner la priorité aux anciens pour la distribution du bonus. Ainsi, le bonus sera distribué aux employés suivant leur dates d'embauche : de la plus ancienne, à la plus récente. Le bonus qu'un employé va recevoir est égal à `3*ancienneté`. Ajoutez à la classe `Entreprise` une méthode `void distribuerBonus()` qui effectue cette tâche **sans utiliser explicitement** un algorithme de tri et sans modifier la classe `Employe`.
 
@@ -113,6 +113,6 @@ On souhaite maintenant pouvoir calculer les indemnités de transport pour chaque
 
 3. Proposez une méthode statique `int getDistance(String ville)` dans la classe `GestionDistances` qui retourne la distance associée à la ville passée en paramètres.
  
-4. Ajoutez à la classe `Employe` une méthode `double getIndemnitéTransport()` retournant l'indemnité qui est dûe à l'employé. La formule de calcul de cette indemnité est `distance  * base`.
+4. Ajoutez à la classe `Employe` une méthode `double getIndemniteTransport()` retournant l'indemnité qui est dûe à l'employé. La formule de calcul de cette indemnité est `distance  * base`.
 
-5. Écrivez des tests unitaires pour vérifier le bon fonctionnement de la méthode `double getIndemnitéTransport()`.
+5. Écrivez des tests unitaires pour vérifier le bon fonctionnement de la méthode `double getIndemniteTransport()`.
