@@ -80,7 +80,7 @@ L'entreprise souhaite distribuer des bonus à ses employés en fonction de la da
     ```java
     import java.time.LocalDate;
  
-    class GestionEtudiants {
+    class GestionEmploye {
         public static void main(String args[]) {
             LocalDate dateEmbauche = LocalDate.of(2019, Month.JANUARY, 28);
             long nbMois = ChronoUnit.MONTHS.between(dateEmbauche, LocalDate.now());
