@@ -3,8 +3,8 @@
 ### IUT Montpellier-Sète – Département Informatique
 
 * **Cours:** [M2103](http://cache.media.enseignementsup-recherche.gouv.fr/file/25/09/7/PPN_INFORMATIQUE_256097.pdf) - support [ici](https://github.com/IUTInfoMontp-M2103/Ressources)
-* **Enseignants:** [Marin Bougeret](mailto:marin.bougeret@umontpellier.fr), [Sébastien Gagné](mailto:sebastien.gagne@umontpellier.fr), [Victor Poupet](mailto:victor.poupet@umontpellier.fr), [Petru Valicov](mailto:petru.valicov@umontpellier.fr) 
-* Le [forum Piazza](https://piazza.com/class/jpv7gf0lltk4kc) de ce cours pour poser vos questions
+* **Enseignants:** [Marin Bougeret](mailto:marin.bougeret@umontpellier.fr), [Sébastien Gagné](mailto:sebastien.gagne@umontpellier.fr), [Sophie Nabitz](mailto:sophie.nabitz@univ-avignon.fr), [Jérôme Palaysi](mailto:jerome.palaysi@umontpellier.fr), [Victor Poupet](mailto:victor.poupet@umontpellier.fr), [Petru Valicov](mailto:petru.valicov@umontpellier.fr)
+* Le [forum Piazza](https://piazza.com/class/k52c8w685w3210) de ce cours pour poser vos questions
 * [Email](mailto:petru.valicov@umontpellier.fr) pour une question d'ordre privée concernant le cours.
 * Le [sujet du TP](https://gitprint.com/IUTInfoMontp-M2103/TP10) en format .pdf téléchargeable et imprimable.
 
@@ -29,7 +29,7 @@ Cliquez sur le lien ci-dessous pour faire votre fork privé du TP :
 
 https://classroom.github.com/a/Tgeln-Od
 
-Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche 14 avril à 23h00**
+Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche **** à 23h00**
 
 Reprenons la classe `Employe` que vous avez écrite pour le [TP5](https://github.com/IUTInfoMontp-M2103/TP5). Pour éviter d'altérer le code du TP5, copiez cette classe dans ce projet (TP10). Le but de ce TP est de proposer différentes organisations des employés dans l'entreprise en fonction des besoins du client. 
 
@@ -58,9 +58,8 @@ L'entreprise souhaite mieux organiser ses employés. Le problème c'est que la c
 
     * créer une entreprise
     * créer plusieurs employés (au moins 4) avec des noms différents et/ou numéros INSEE différents
-    * vérifiez avec des _assertions_ que le résultat obtenu est correct. Pour des exemples d'assertions :
+    * vérifiez avec des _assertions_ (`assertEquals(...)`, `assertNotEquals(...)`, `assertTrue(...)`, `assertFalse(...)` etc.) que le résultat obtenu est correct. Pour la liste exhaustive des assertions en _Junit 5_ :
     
-        * le TP2 : https://github.com/IUTInfoMontp-M2103/TP2
         * un tutoriel en ligne : https://www.petrikainulainen.net/programming/testing/junit-5-tutorial-writing-assertions-with-junit-5-api/
         * l'API de la classe `Assertions` : https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html
 
