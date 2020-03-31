@@ -27,9 +27,9 @@ Avant de démarrer le TP, vérifiez que vous n'avez pas atteint votre quota d'es
 
 Cliquez sur le lien ci-dessous pour faire votre fork privé du TP :
 
-https://classroom.github.com/a/Tgeln-Od
+LIEN À AJOUTER ICI
 
-Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche **** à 23h00**
+Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche 3 mai à 23h00**
 
 Reprenons la classe `Employe` que vous avez écrite pour le [TP5](https://github.com/IUTInfoMontp-M2103/TP5). Pour éviter d'altérer le code du TP5, copiez cette classe dans ce projet (TP10). Le but de ce TP est de proposer différentes organisations des employés dans l'entreprise en fonction des besoins du client. 
 
@@ -52,10 +52,10 @@ L'entreprise souhaite mieux organiser ses employés. Le problème c'est que la c
 
 1. Redéfinissez les méthodes `equals(Object o)` et `hashCode()` de la classe `Employe` afin de distinguer deux employés en fonction de leur numéro INSEE. Vous pouvez utiliser la méthode `hashCode()` de la classe `String`.
 
-2. Maintenant l'entreprise souhaite pouvoir retrouver l'ensemble de ses employés sans les doublons. De plus, pour une meilleure lisibilité, il serait souhaitable de pouvoir récuperer l'ensemble des employés dans l'ordre. L'ordre choisi est l'orde _croissant_ suivant le nom et qui en cas d'égalité, applique l'ordre _décroissant_ suivant le numéro INSEE. Sans trier explicitement les éléments, ajoutez une méthode `Collection<Employe> getEmployes()` qui, à partir de la collection `lePersonnel`, retourne une autre collection respectant ces contraintes. **Attention** : Pas de modifications du code précédemment écrit (et donc de l'attribut `lePersonnel`).
+2. Maintenant l'entreprise souhaite pouvoir retrouver l'ensemble de ses employés sans les doublons. De plus, pour une meilleure lisibilité, il serait souhaitable de pouvoir récuperer l'ensemble des employés dans l'ordre. L'ordre choisi est l'orde _croissant_ suivant le nom et qui en cas d'égalité, applique l'ordre _décroissant_ suivant le numéro INSEE. Sans trier explicitement les éléments, ajoutez une méthode `Collection<Employe> getEmployes()` qui, à partir de la collection `lePersonnel`, retourne une autre collection respectant ces contraintes.
+   **Attention** : Pas de modifications du code précédemment écrit (et donc de l'attribut `lePersonnel`).
 
 3. Ecrivez plusieurs tests unitaires vérifiant la fonctionnalité programmée. Voici le scénario à appliquer dans chaque test :
-
     * créer une entreprise
     * créer plusieurs employés (au moins 4) avec des noms différents et/ou numéros INSEE différents
     * vérifiez avec des _assertions_ (`assertEquals(...)`, `assertNotEquals(...)`, `assertTrue(...)`, `assertFalse(...)` etc.) que le résultat obtenu est correct. Pour la liste exhaustive des assertions en _Junit 5_ :
