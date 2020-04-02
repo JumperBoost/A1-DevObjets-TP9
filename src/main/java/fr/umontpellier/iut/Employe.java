@@ -1,37 +1,44 @@
 package fr.umontpellier.iut;
 
+import java.time.LocalDate;
+
 public class Employe {
+
     private String nrINSEE;
     private String nom;
-    private int echelon;
     private double base;
     private double nbHeures;
 
-    public Employe(String nrINSEE, String nom, int echelon, double base, double nbHeures) {
+    private LocalDate dateEmbauche;
+    private double bonusIndividuel;
+
+    private String adresse = "";
+
+    public Employe(String nrINSEE, String nom, double base, double nbHeures, LocalDate dateEmbauche) {
         this.nrINSEE = nrINSEE;
         this.nom = nom;
-        this.echelon = echelon;
         this.base = base;
         this.nbHeures = nbHeures;
+        this.dateEmbauche = dateEmbauche;
     }
 
-    public double getSalaireBrut() {
-        return base * nbHeures;
+    public LocalDate getDateEmbauche() {
+        return dateEmbauche;
     }
 
-    public double getSalaireNet() {
-        return getSalaireBrut() * 0.8; // pour éviter la duplication du code
+    public void setDateEmbauche(LocalDate dateEmbauche) {
+        this.dateEmbauche = dateEmbauche;
     }
 
 
     @Override
     public String toString() {
         return "Employe{" +
-                "addNrINSEE=" + nrINSEE +
+                "nrINSEE='" + nrINSEE + '\'' +
                 ", nom='" + nom + '\'' +
-                ", echelon=" + echelon +
                 ", base=" + base +
                 ", nbHeures=" + nbHeures +
-                '}';
+                ", dateEmbauche=" + dateEmbauche +
+                "}\n";
     }
 }

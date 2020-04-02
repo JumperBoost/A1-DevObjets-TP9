@@ -32,19 +32,17 @@ LIEN À AJOUTER ICI
 
 Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche 3 mai à 23h00**
 
-Reprenons la classe `Employe` que vous avez écrite pour le [TP5](https://github.com/IUTInfoMontp-M2103/TP5). Pour vous faciliter la tâche, elle vous est directement donnée. Le but de ce TP est de proposer différentes organisations des employés dans l'entreprise en fonction des besoins du client. 
+Reprenons la classe `Employe` du [TP5](https://github.com/IUTInfoMontp-M2103/TP5). Pour vous faciliter la tâche, nous l'avons directement écrite et y avons ajouté un attribut `dateEmbauche` avec accesseur et modifieur. Le but de ce TP est de proposer différentes organisations des employés dans l'entreprise en fonction des besoins du client. 
 
 ### Exercice 1 - mise en place
 
-1. Ajoutez un attribut `dateEmbauche` de type `LocalDate` dans la classe `Employe`. Ajoutez également un accesseur (_getter_) et un modifieurs (_setter_) à cet attribut.
+1. Créez une classe `Entreprise` contenant une collection d'employés (la plus générale possible) que l'on va appeler `lePersonnel`. Ajoutez un constructeur sans paramètres instanciant cette collection en tant que `ArrayList`.  
 
-2. Créez une classe `Entreprise` contenant une collection d'employés (la plus générale possible) que l'on va appeler `lePersonnel`. Ajoutez un constructeur sans paramètres instanciant cette collection en tant que `ArrayList`.  
+2. Ajoutez à `Entreprise` les méthodes `void embaucher(Employe e, LocalDate dateEmbauche)` et `void licencier(Employe e)` pour mettre à jour la liste d'employés de manière correspondante.
 
-3. Ajoutez à `Entreprise` les méthodes `void embaucher(Employe e, LocalDate dateEmbauche)` et `void licencier(Employe e)` pour mettre à jour la liste d'employés de manière correspondante.
+3. Redéfinissez la méthode `String toString()` de la classe `Entreprise` pour afficher ses informations.
 
-4. Redéfinissez la méthode `String toString()` de la classe `Entreprise` pour afficher ses informations.
-
-5. Vérifiez votre programme en créant dans la classe principale une entreprise et en embauchant plusieurs employés. Vous afficherez l'état de l'entreprise après chacune des opérations.
+4. Vérifiez votre programme en créant dans la classe principale une entreprise et en embauchant plusieurs employés. Vous afficherez l'état de l'entreprise après chacune des opérations.
 
 
 ### Exercice 2 - organisation des employés
