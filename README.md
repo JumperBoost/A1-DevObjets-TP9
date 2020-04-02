@@ -6,7 +6,7 @@
 * **Enseignants:** [Marin Bougeret](mailto:marin.bougeret@umontpellier.fr), [Sébastien Gagné](mailto:sebastien.gagne@umontpellier.fr), [Sophie Nabitz](mailto:sophie.nabitz@univ-avignon.fr), [Jérôme Palaysi](mailto:jerome.palaysi@umontpellier.fr), [Victor Poupet](mailto:victor.poupet@umontpellier.fr), [Petru Valicov](mailto:petru.valicov@umontpellier.fr)
 * Le [forum Piazza](https://piazza.com/class/k52c8w685w3210) de ce cours pour poser vos questions
 * [Email](mailto:petru.valicov@umontpellier.fr) pour une question d'ordre privée concernant le cours.
-* Le [sujet du TP](https://gitprint.com/IUTInfoMontp-M2103/TP10) en format .pdf téléchargeable et imprimable.
+* Le [sujet du TP](https://gitprint.com/IUTInfoMontp-M2103/TP9) en format .pdf téléchargeable et imprimable.
 
 Avant de démarrer le TP, vérifiez que vous n'avez pas atteint votre quota d'espace de stockage autorisé :
 
@@ -23,7 +23,7 @@ Avant de démarrer le TP, vérifiez que vous n'avez pas atteint votre quota d'es
 
 
 
-## TP10 : _utilisation des collections Java_
+## TP9 : _utilisation des collections Java_
 
 Cliquez sur le lien ci-dessous pour faire votre fork privé du TP :
 
@@ -31,7 +31,7 @@ LIEN À AJOUTER ICI
 
 Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche 3 mai à 23h00**
 
-Reprenons la classe `Employe` que vous avez écrite pour le [TP5](https://github.com/IUTInfoMontp-M2103/TP5). Pour éviter d'altérer le code du TP5, copiez cette classe dans ce projet (TP10). Le but de ce TP est de proposer différentes organisations des employés dans l'entreprise en fonction des besoins du client. 
+Reprenons la classe `Employe` que vous avez écrite pour le [TP5](https://github.com/IUTInfoMontp-M2103/TP5). Pour vous faciliter la tâche, elle vous est directement donnée. Le but de ce TP est de proposer différentes organisations des employés dans l'entreprise en fonction des besoins du client. 
 
 ### Exercice 1 - mise en place
 
@@ -50,9 +50,10 @@ Reprenons la classe `Employe` que vous avez écrite pour le [TP5](https://github
 
 L'entreprise souhaite mieux organiser ses employés. Le problème c'est que la collection `lePersonnel` peut contenir le même employé plusieurs fois si cette personne occupe des postes différents. Et donc il ne faut surtout pas changer cela.
 
-1. Redéfinissez les méthodes `equals(Object o)` et `hashCode()` de la classe `Employe` afin de distinguer deux employés en fonction de leur numéro INSEE. Vous pouvez utiliser la méthode `hashCode()` de la classe `String`.
+1. Redéfinissez les méthodes `equals(Object o)` et `hashCode()` de la classe `Employe` afin de distinguer deux employés en fonction de leur numéro INSEE (de type `String`). Vous pouvez utiliser la méthode `hashCode()` de la classe `String`.
 
 2. Maintenant l'entreprise souhaite pouvoir retrouver l'ensemble de ses employés sans les doublons. De plus, pour une meilleure lisibilité, il serait souhaitable de pouvoir récuperer l'ensemble des employés dans l'ordre. L'ordre choisi est l'orde _croissant_ suivant le nom et qui en cas d'égalité, applique l'ordre _décroissant_ suivant le numéro INSEE. Sans trier explicitement les éléments, ajoutez une méthode `Collection<Employe> getEmployes()` qui, à partir de la collection `lePersonnel`, retourne une autre collection respectant ces contraintes.
+
    **Attention** : Pas de modifications du code précédemment écrit (et donc de l'attribut `lePersonnel`).
 
 3. Ecrivez plusieurs tests unitaires vérifiant la fonctionnalité programmée. Voici le scénario à appliquer dans chaque test :
