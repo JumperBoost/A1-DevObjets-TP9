@@ -10,9 +10,6 @@ public class Employe {
     private double nbHeures;
 
     private LocalDate dateEmbauche;
-    private double bonusIndividuel;
-
-    private String adresse = "";
 
     public Employe(String nrINSEE, String nom, double base, double nbHeures, LocalDate dateEmbauche) {
         this.nrINSEE = nrINSEE;

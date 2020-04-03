@@ -40,6 +40,8 @@ Reprenons la classe `Employe` du [TP5](https://github.com/IUTInfoMontp-M2103/TP5
 
 2. Ajoutez à `Entreprise` les méthodes `void embaucher(Employe e, LocalDate dateEmbauche)` et `void licencier(Employe e)` pour mettre à jour la liste d'employés de manière correspondante.
 
+    **Remarque importante:**  Pour simplifier, vous supposerez que les employés se font embaucher à des dates différentes.
+
 3. Redéfinissez la méthode `String toString()` de la classe `Entreprise` pour afficher ses informations.
 
 4. Vérifiez votre programme en créant dans la classe principale une entreprise et en embauchant plusieurs employés. Vous afficherez l'état de l'entreprise après chacune des opérations.
@@ -86,14 +88,13 @@ L'entreprise souhaite distribuer des bonus à ses employés en fonction de la da
     }
     ```
  
-4. Ecrivez plusieurs tests unitaires vérifiant le bon fonctionnement de la méthode `int getMoisAnciennete()` de la classe `Employe`. Vérifiez notamment que deux personnes étant embauchés le même mois de la même année mais à des dates différentes, aient la même ancienneté.
+4. Ecrivez plusieurs tests unitaires vérifiant le bon fonctionnement de la méthode `int getMoisAnciennete()` de la classe `Employe`. Vérifiez notamment que deux personnes étant embauchées le même mois de la même année mais à des dates différentes, aient la même ancienneté.
 
-5. Le patron a décidé de donner la priorité aux anciens pour la distribution du bonus. Ainsi, le bonus sera distribué aux employés suivant leur dates d'embauche : de la plus ancienne, à la plus récente. Le bonus qu'un employé va recevoir est égal à `3*ancienneté`. Ajoutez à la classe `Entreprise` une méthode `void distribuerBonus()` qui effectue cette tâche **sans utiliser explicitement** un algorithme de tri et sans modifier la classe `Employe`.
+5. Le patron a décidé de donner la priorité aux anciens pour la distribution du bonus. Ainsi, le bonus sera distribué aux employés suivant leur dates d'embauche : de la plus ancienne, à la plus récente. Le bonus qu'un employé va recevoir est égal à `3*ancienneté`. Ajoutez à la classe `Entreprise` une méthode `void distribuerBonus()` qui effectue cette tâche **sans utiliser explicitement** un algorithme de tri et sans modifier la classe `Employe`. Écrivez des tests unitaires pour vous assurer que l'employé à bien reçu le bon bonus.
 
-6. Modifiez la méthode `toString()` de `Employe` afin qu'elle affiche également le bonus que l'employé a reçu et testez votre solution : en écrivant des tests unitaires ou en affichant directement dans le `main(String args[])` de la classe principale.
+6. Modifiez la méthode `toString()` de `Employe` afin qu'elle affiche également le bonus que l'employé a reçus.
 
-7. L'entreprise traverse une période de crise et décide de se séparer d'une partie de ses employés. Afin de fidéliser les anciens employés, ce qui a été décidé c'est de licencier les employés ayant travaillé le moins longtemps dans l'entreprise. Sans modifier le code précédemment écrit, ajoutez dans la classe `Entreprise` une méthode `void remercier(int n)` qui permet de licencier `n` ayant été embauché le plus tard. Pour simplifier, vous supposerez que tous les employés ont été embauché à des dates différentes. 
-
+7. L'entreprise traverse une période de crise et décide de se séparer d'une partie de ses employés. Afin de fidéliser les anciens employés, ce qui a été décidé c'est de licencier les employés ayant travaillé le moins longtemps dans l'entreprise. Sans modifier le code précédemment écrit, ajoutez dans la classe `Entreprise` une méthode `void remercier(int n)` qui permet de licencier `n` ayant été embauché le plus tard.
 
 ### Exercice 4 - indemnités de transport
 
