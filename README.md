@@ -42,7 +42,7 @@ Reprenons la classe `Employe` du [TP5](https://github.com/IUTInfoMontp-M2103/TP5
 
 3. Redéfinissez la méthode `String toString()` de la classe `Entreprise` pour afficher ses informations.
 
-4. Vérifiez votre programme en créant dans la classe principale une entreprise et en embauchant plusieurs employés. Vous afficherez l'état de l'entreprise après chacune des opérations.
+4. Vérifiez votre programme en créant dans la classe principale (`GestionEmployes`) une entreprise et en embauchant plusieurs employés. Vous afficherez l'état de l'entreprise après chacune des opérations.
 
 
 ### Exercice 2 - organisation des employés
@@ -51,7 +51,7 @@ L'entreprise souhaite mieux organiser ses employés. On remarque que la collecti
 
 1. Redéfinissez les méthodes `equals(Object o)` et `hashCode()` de la classe `Employe` afin de distinguer deux employés en fonction de leur numéro INSEE (de type `String`). Vous pouvez utiliser la méthode `hashCode()` de la classe `String`.
 
-2. Maintenant l'entreprise souhaite pouvoir retrouver l'ensemble de ses employés sans les doublons. De plus, pour une meilleure lisibilité, il serait souhaitable de pouvoir récuperer l'ensemble des employés dans l'ordre. L'ordre choisi est l'orde _croissant_ suivant le nom et qui en cas d'égalité, applique l'ordre _décroissant_ suivant le numéro INSEE. **Sans invoquer explicitement** une méthode de tri, ajoutez une méthode `Collection<Employe> getEmployes()` qui, à partir de la collection `lePersonnel`, retourne une autre collection respectant ces contraintes.
+2. Maintenant l'entreprise souhaite pouvoir retrouver l'ensemble de ses employés sans les doublons. De plus, pour une meilleure lisibilité, il serait souhaitable de pouvoir récuperer l'ensemble des employés dans l'ordre. L'ordre choisi est l'orde _croissant_ suivant le nom et qui en cas d'égalité, applique l'ordre _décroissant_ suivant le numéro INSEE. **Sans invoquer explicitement** une méthode de tri des éléments, ajoutez à la classe `Entreprise` une méthode `Collection<Employe> getEmployes()` qui, à partir de la collection `lePersonnel`, retourne une autre collection respectant ces contraintes.
 
    **Attention** : Pas de modifications du code précédemment écrit (et donc de l'attribut `lePersonnel`).
 
