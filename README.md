@@ -36,7 +36,7 @@ Reprenons la classe `Employe` du [TP5](https://github.com/IUTInfoMontp-M2103/TP5
 
 ### Exercice 1 - mise en place
 
-1. Créez une classe `Entreprise` contenant une collection d'employés (la plus générale possible) que l'on va appeler `lePersonnel`. Ajoutez un constructeur sans paramètres instanciant cette collection en tant que `ArrayList`.  
+1. Ajoutez comme attribut à la classe `Entreprise` une collection d'employés (la plus générale possible) que l'on va appeler `lePersonnel`. Ajoutez un constructeur sans paramètres instanciant cette collection en tant que `ArrayList`.
 
 2. Ajoutez à `Entreprise` les méthodes `void embaucher(Employe e, LocalDate dateEmbauche)` et `void licencier(Employe e)` pour mettre à jour la liste d'employés de manière correspondante.
 
@@ -49,18 +49,22 @@ Reprenons la classe `Employe` du [TP5](https://github.com/IUTInfoMontp-M2103/TP5
 
 L'entreprise souhaite mieux organiser ses employés. On remarque que la collection `lePersonnel` peut contenir le même employé plusieurs fois si cette personne occupe des postes différents. Et donc il ne faut surtout pas changer cela.
 
-1. Redéfinissez les méthodes `equals(Object o)` et `hashCode()` de la classe `Employe` afin de distinguer deux employés en fonction de leur numéro INSEE (de type `String`). Vous pouvez utiliser la méthode `hashCode()` de la classe `String`.
+1. Redéfinissez les méthodes `equals(Object o)` et `hashCode()` de la classe `Employe` afin de distinguer deux employés en fonction de leur numéro INSEE (de type `String`). Vous pouvez utiliser la méthode `hashCode()` de la classe `String`. Dorénavant deux employés seront considérés comme des doublons s'ils ont le même numéro INSEE.
 
-2. Maintenant l'entreprise souhaite pouvoir retrouver l'ensemble de ses employés sans les doublons. De plus, pour une meilleure lisibilité, il serait souhaitable de pouvoir récuperer l'ensemble des employés dans l'ordre. L'ordre choisi est l'orde _croissant_ suivant le nom et qui en cas d'égalité, applique l'ordre _décroissant_ suivant le numéro INSEE. **Sans invoquer explicitement** une méthode de tri des éléments, ajoutez à la classe `Entreprise` une méthode `Collection<Employe> getEmployes()` qui, à partir de la collection `lePersonnel`, retourne une autre collection respectant ces contraintes.
+2. Maintenant l'entreprise souhaite pouvoir retrouver l'ensemble de ses employés sans les doublons. De plus, pour une meilleure lisibilité, il serait souhaitable de pouvoir récuperer l'ensemble des employés dans l'ordre. L'ordre choisi est l'orde _croissant_ suivant le nom et qui en cas d'égalité, applique l'ordre _décroissant_ suivant le numéro INSEE.
+    
+    Écrivez le corps de la méthode `Collection<Employe> getEmployes()` qui, à partir de la collection `lePersonnel`, retourne une autre collection respectant ces contraintes et ce **sans invoquer explicitement** une méthode ou algorithme de tri.
 
    **Attention** : Pas de modifications du code précédemment écrit (et donc de l'attribut `lePersonnel`).
 
-3. Ecrivez plusieurs tests unitaires vérifiant la fonctionnalité programmée. Voici le scénario à appliquer dans chaque test :
+3. Écrivez une nouvelle méthode `Collection<Employe> getEmployesDansDesordre()` qui, à partir de la collection `lePersonnel`, retourne une autre collection en enlevant tous les doublons et ce **sans écrire ou invoquer explicitement un algorithme de recherche de doublons**.
+
+4. Ecrivez plusieurs tests unitaires vérifiant la fonctionnalité programmée. Voici le scénario à appliquer dans chaque test :
     * créer une entreprise
     * créer plusieurs employés (au moins 4) avec des noms différents et/ou numéros INSEE différents
-    * vérifiez avec des _assertions_ (`assertEquals(...)`, `assertNotEquals(...)`, `assertTrue(...)`, `assertFalse(...)` etc.) que la méthode `getEmployes()` fonctionne correctement. Pour la liste exhaustive des assertions en _Junit 5_ :
+    * vérifiez avec des _assertions_ (`assertEquals(...)`, `assertNotEquals(...)`, `assertTrue(...)`, `assertFalse(...)` etc.) que la méthode `getEmployesOrdonnes()` fonctionne correctement. Vous vérifierez notamment que les collections retournées par `getEmployesOrdonnes()` et `getEmployesDansDesordre()` sont de même tailles (et contiennent les mêmes employés). Pour la liste exhaustive des assertions en _Junit 5_ :
         * un tutoriel en ligne : https://www.petrikainulainen.net/programming/testing/junit-5-tutorial-writing-assertions-with-junit-5-api/
-        * l'API de la classe `Assertions` : https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html
+        * l'API de la classe `Assertions` : https://junit.org/junit5/docs/5.4.0/api/org/junit/jupiter/api/Assertions.html
 
 
 ### Exercice 3 - priorité aux anciens
