@@ -20,7 +20,7 @@ Avant de démarrer le TP, vérifiez que vous n'avez pas atteint votre quota d'es
 
 ### Consignes
 - Vous respecterez les différents principes de programmation vues dans le cours et les TPs précédents
-- Vous marquerez les réponses dans un fichier **reponses.md** que vous déposerez à la racine de votre projet
+- Toutes vos classes doivent résider dans le paquetage `fr.umontpellier.iut`
 
 
 
@@ -39,8 +39,6 @@ Reprenons la classe `Employe` du [TP5](https://github.com/IUTInfoMontp-M2103/TP5
 1. Créez une classe `Entreprise` contenant une collection d'employés (la plus générale possible) que l'on va appeler `lePersonnel`. Ajoutez un constructeur sans paramètres instanciant cette collection en tant que `ArrayList`.  
 
 2. Ajoutez à `Entreprise` les méthodes `void embaucher(Employe e, LocalDate dateEmbauche)` et `void licencier(Employe e)` pour mettre à jour la liste d'employés de manière correspondante.
-
-    **Remarque importante:**  Pour simplifier, vous supposerez que les employés se font embaucher à des dates différentes.
 
 3. Redéfinissez la méthode `String toString()` de la classe `Entreprise` pour afficher ses informations.
 
@@ -91,6 +89,8 @@ L'entreprise souhaite distribuer des bonus à ses employés en fonction de la da
 4. Ecrivez plusieurs tests unitaires vérifiant le bon fonctionnement de la méthode `int getMoisAnciennete()` de la classe `Employe`. Vérifiez notamment que deux personnes étant embauchées le même mois de la même année mais à des dates différentes, aient la même ancienneté.
 
 5. Le patron a décidé de donner la priorité aux anciens pour la distribution du bonus. Ainsi, le bonus sera distribué aux employés suivant leur dates d'embauche : de la plus ancienne, à la plus récente. Le bonus qu'un employé va recevoir est égal à `3*ancienneté`. Ajoutez à la classe `Entreprise` une méthode `void distribuerBonus()` qui effectue cette tâche **sans utiliser explicitement** un algorithme de tri et sans modifier la classe `Employe`. Écrivez des tests unitaires pour vous assurer que l'employé à bien reçu le bon bonus.
+
+    **Remarque importante:**  Pour simplifier, vous supposerez que les employés se font embaucher à des dates différentes.
 
 6. Modifiez la méthode `toString()` de `Employe` afin qu'elle affiche également le bonus que l'employé a reçus.
 
