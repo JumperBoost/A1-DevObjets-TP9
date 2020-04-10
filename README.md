@@ -53,7 +53,7 @@ L'entreprise souhaite mieux organiser ses employés. On remarque que la collecti
 
 2. Maintenant l'entreprise souhaite pouvoir retrouver l'ensemble de ses employés sans les doublons. De plus, pour une meilleure lisibilité, il serait souhaitable de pouvoir récuperer l'ensemble des employés dans l'ordre. L'ordre choisi est l'orde _croissant_ suivant le nom et qui en cas d'égalité, applique l'ordre _décroissant_ suivant le numéro INSEE.
     
-    Écrivez le corps de la méthode `Collection<Employe> getEmployes()` qui, à partir de la collection `lePersonnel`, retourne une autre collection respectant ces contraintes et ce **sans invoquer explicitement** une méthode ou algorithme de tri.
+    Écrivez le corps de la méthode `Collection<Employe> getEmployesOrdonnes()` qui, à partir de la collection `lePersonnel`, retourne une autre collection respectant ces contraintes et ce **sans invoquer explicitement** une méthode ou algorithme de tri.
 
    **Attention** : Pas de modifications du code précédemment écrit (et donc de l'attribut `lePersonnel`).
 
