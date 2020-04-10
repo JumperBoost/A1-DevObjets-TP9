@@ -9,6 +9,10 @@ public class Entreprise {
         throw new RuntimeException("Méthode à implémenter");
     }
 
+    public Collection<Employe> getEmployesDansDesordre() {
+        throw new RuntimeException("Méthode à implémenter");
+    }
+
     public void setBonusTotal(double bonusTotal) {
         this.bonusTotal = bonusTotal;
     }

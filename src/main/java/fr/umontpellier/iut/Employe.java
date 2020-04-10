@@ -3,11 +3,9 @@ package fr.umontpellier.iut;
 import java.time.LocalDate;
 
 public class Employe {
-
     private String nrINSEE;
     private String nom;
     private double base;
-    private double nbHeures;
 
     private LocalDate dateEmbauche;
 
@@ -15,11 +13,10 @@ public class Employe {
 
     private String adresse; // pour exo4
 
-    public Employe(String nrINSEE, String nom, double base, double nbHeures, LocalDate dateEmbauche) {
+    public Employe(String nrINSEE, String nom, double base, LocalDate dateEmbauche) {
         this.nrINSEE = nrINSEE;
         this.nom = nom;
         this.base = base;
-        this.nbHeures = nbHeures;
         this.dateEmbauche = dateEmbauche;
     }
 
@@ -31,14 +28,12 @@ public class Employe {
         this.dateEmbauche = dateEmbauche;
     }
 
-
     @Override
     public String toString() {
         return "Employe{" +
                 "nrINSEE='" + nrINSEE + '\'' +
                 ", nom='" + nom + '\'' +
                 ", base=" + base +
-                ", nbHeures=" + nbHeures +
                 ", dateEmbauche=" + dateEmbauche +
                 "}\n";
     }
@@ -57,5 +52,9 @@ public class Employe {
 
     public void setAdresse(String adresse) {
         this.adresse = adresse;
+    }
+
+    public double getIndemniteTransport() {
+        throw new RuntimeException("Méthode à implémenter");
     }
 }

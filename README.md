@@ -21,7 +21,7 @@ Avant de démarrer le TP, vérifiez que vous n'avez pas atteint votre quota d'es
 ### Consignes
 - Vous respecterez les différents principes de programmation vues dans le cours et les TPs précédents
 - Toutes vos classes doivent résider dans le paquetage `fr.umontpellier.iut`
-
+- Les signatures des méthodes et les noms des classes doivent restés inchangés.
 
 
 ## TP9 : _utilisation des collections Java_
@@ -57,7 +57,7 @@ L'entreprise souhaite mieux organiser ses employés. On remarque que la collecti
 
    **Attention** : Pas de modifications du code précédemment écrit (et donc de l'attribut `lePersonnel`).
 
-3. Écrivez une nouvelle méthode `Collection<Employe> getEmployesDansDesordre()` qui, à partir de la collection `lePersonnel`, retourne une autre collection en enlevant tous les doublons et ce **sans écrire ou invoquer explicitement un algorithme de recherche de doublons**.
+3. Écrivez maintenant le corps de la méthode `Collection<Employe> getEmployesDansDesordre()`. À partir de la collection `lePersonnel`, elle devra retourner une autre collection en enlevant tous les doublons et ce **sans écrire ou invoquer explicitement un algorithme de recherche de doublons**.
 
 4. Ecrivez plusieurs tests unitaires vérifiant la fonctionnalité programmée. Voici le scénario à appliquer dans chaque test :
     * créer une entreprise
@@ -101,7 +101,7 @@ L'attribut `double bonus` de la classe `Employe` permet de définir la quantité
 ### Exercice 4 - indemnités de transport
 
 On souhaite maintenant pouvoir calculer les indemnités de transport pour chaque employé en fonction de la distance entre sa ville de résidence (une données de type `String`) et les locaux de l'entreprise.
-L'attribut `String adresse` de la classe `Employe` correspond à sa ville de résidence. Ses _getter_ et _setter_ permettent la gestion de cet attribut.
+L'attribut `String adresse` de la classe `Employe` correspond à sa ville de résidence. Le _getter_ et le _setter_ permettent la gestion de cet attribut.
 
 1. Écrivez une classe `GestionDistances` qui initialise et gère une collection statique faisant correspondre une distance (un entier) à une ville. Une ville ne peut être associée qu'à une unique distance, mais une même distance peut être associée à plusieurs villes. À titre d'exemple vous stockerez dans la collection les données suivantes :
     * Montpellier &rightarrow; 0
@@ -113,6 +113,6 @@ L'attribut `String adresse` de la classe `Employe` correspond à sa ville de ré
 
 2. Proposez une méthode statique `int getDistance(String ville)` dans la classe `GestionDistances` qui retourne la distance associée à la ville passée en paramètres.
  
-3. Ajoutez à la classe `Employe` une méthode `double getIndemniteTransport()` retournant l'indemnité qui est dûe à l'employé. La formule de calcul de cette indemnité est `distance  * base`.
+3. Écrivez le corps de la méthode `double getIndemniteTransport()` de la classe `Employe`. Elle doit retourner l'indemnité qui est dûe à l'employé. La formule de calcul de cette indemnité est `distance  * base`.
 
 4. Écrivez des tests unitaires pour vérifier le bon fonctionnement de la méthode `double getIndemniteTransport()`.
