@@ -12,4 +12,8 @@ public class Entreprise {
     public void setBonusTotal(double bonusTotal) {
         this.bonusTotal = bonusTotal;
     }
+
+    public void distribuerBonus() {
+        throw new RuntimeException("Méthode à implémenter");
+    }
 }

@@ -11,6 +11,8 @@ public class Employe {
 
     private LocalDate dateEmbauche;
 
+    private double bonus; //pour exo3
+
     public Employe(String nrINSEE, String nom, double base, double nbHeures, LocalDate dateEmbauche) {
         this.nrINSEE = nrINSEE;
         this.nom = nom;
@@ -37,5 +39,13 @@ public class Employe {
                 ", nbHeures=" + nbHeures +
                 ", dateEmbauche=" + dateEmbauche +
                 "}\n";
+    }
+
+    public double getBonus() {
+        return bonus;
+    }
+
+    public void setBonus(double bonus) {
+        this.bonus = bonus;
     }
 }

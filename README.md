@@ -71,9 +71,9 @@ L'entreprise souhaite mieux organiser ses employés. On remarque que la collecti
 
 L'entreprise souhaite distribuer des bonus à ses employés en fonction de la date d'embauche. Le problème est que cette somme est évidemment limitée, donc on risque de ne pas pouvoir distribuer des bonus à chaque employé... Cette somme est représentée par l'attribut `double bonusTotal` de la classe `Entreprise`. Un _setter_ permet à l'utilisateur de fixer à tout moment la somme d'argent disponible pour distribuer un bonus aux employés.
 
-1. Ajoutez à la classe `Employe` un attribut `double bonus` et une méthode _setter_ `void setBonus(double bonus)`.
+L'attribut `double bonus` de la classe `Employe` permet de définir la quantité de bonus qu'un employé va recevoir. Les méthode _setter_ et _getter_ permettent la gestion de ce bonus. 
  
-2. Ajoutez à la classe `Employe` une méthode `int getMoisAncienneté()` qui renvoient le nombre de mois correspondant à l'intervalle de temps entre la date d'embauche et maintenant. L'ancienneté est calculée sur le nombre de mois **complets** depuis la date d'embauche (un mois complet est compté du 1er au 30/31).
+1. Ajoutez à la classe `Employe` une méthode `int getMoisAncienneté()` qui renvoient le nombre de mois correspondant à l'intervalle de temps entre la date d'embauche et maintenant. L'ancienneté est calculée sur le nombre de mois **complets** depuis la date d'embauche (un mois complet est compté du 1er au 30/31).
     
     **Astuce :** pour calculer l'ancienneté vous pouvez utiliser la classe `ChronoUnit` qui permet d'effectuer des calculs en fonction de différentes unités temporelles (jours, mois, années etc.). Voici un exemple de code qui permet de calculer le nombre de mois entre la date d'embauche et la date d'aujourd'hui :
  
@@ -88,15 +88,15 @@ L'entreprise souhaite distribuer des bonus à ses employés en fonction de la da
     }
     ```
  
-3. Ecrivez plusieurs tests unitaires vérifiant le bon fonctionnement de la méthode `int getMoisAncienneté()` de la classe `Employe`. Vérifiez notamment que deux personnes étant embauchées le même mois de la même année mais à des dates différentes, aient la même ancienneté.
+2. Ecrivez plusieurs tests unitaires vérifiant le bon fonctionnement de la méthode `int getMoisAncienneté()` de la classe `Employe`. Vérifiez notamment que deux personnes étant embauchées le même mois de la même année mais à des dates différentes, aient la même ancienneté.
 
-4. Le patron a décidé de donner la priorité aux anciens pour la distribution du bonus. Ainsi, le bonus sera distribué aux employés suivant leur dates d'embauche : de la plus ancienne, à la plus récente. Le bonus qu'un employé va recevoir est égal à `3*ancienneté`. Ajoutez à la classe `Entreprise` une méthode `void distribuerBonus()` qui effectue cette tâche **sans utiliser explicitement** un algorithme de tri et sans modifier la classe `Employe`. Écrivez des tests unitaires pour vous assurer que l'employé à bien reçu le bon bonus.
+3. Le patron a décidé de donner la priorité aux anciens pour la distribution du bonus. Ainsi, le bonus sera distribué aux employés suivant leur dates d'embauche : de la plus ancienne, à la plus récente. Le bonus qu'un employé va recevoir est égal à `3*ancienneté`. Écrivez le corps de la méthode `void distribuerBonus()` qui effectue cette tâche **sans utiliser explicitement** un algorithme de tri et sans modifier la classe `Employe`. Écrivez des tests unitaires pour vous assurer que l'employé à bien reçu le bon bonus.
 
     **Remarque importante:**  Pour simplifier, vous supposerez que les employés se font embaucher à des dates différentes.
 
-5. Modifiez la méthode `toString()` de `Employe` afin qu'elle affiche également le bonus que l'employé a reçus.
+4. Modifiez la méthode `toString()` de `Employe` afin qu'elle affiche également le bonus que l'employé a reçus.
 
-6. L'entreprise traverse une période de crise et décide de se séparer d'une partie de ses employés. Afin de fidéliser les anciens employés, ce qui a été décidé c'est de licencier les employés ayant travaillé le moins longtemps dans l'entreprise. Sans modifier le code précédemment écrit, ajoutez dans la classe `Entreprise` une méthode `void remercier(int n)` qui permet de licencier `n` ayant été embauché le plus tard.
+5. L'entreprise traverse une période de crise et décide de se séparer d'une partie de ses employés. Afin de fidéliser les anciens employés, ce qui a été décidé c'est de licencier les employés ayant travaillé le moins longtemps dans l'entreprise. Sans modifier le code précédemment écrit, ajoutez dans la classe `Entreprise` une méthode `void remercier(int n)` qui permet de licencier `n` ayant été embauché le plus tard.
 
 ### Exercice 4 - indemnités de transport
 
