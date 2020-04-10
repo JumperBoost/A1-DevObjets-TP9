@@ -11,7 +11,9 @@ public class Employe {
 
     private LocalDate dateEmbauche;
 
-    private double bonus; //pour exo3
+    private double bonus; // pour exo3
+
+    private String adresse; // pour exo4
 
     public Employe(String nrINSEE, String nom, double base, double nbHeures, LocalDate dateEmbauche) {
         this.nrINSEE = nrINSEE;
@@ -47,5 +49,13 @@ public class Employe {
 
     public void setBonus(double bonus) {
         this.bonus = bonus;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
     }
 }

@@ -73,7 +73,7 @@ L'entreprise souhaite distribuer des bonus à ses employés en fonction de la da
 
 L'attribut `double bonus` de la classe `Employe` permet de définir la quantité de bonus qu'un employé va recevoir. Les méthode _setter_ et _getter_ permettent la gestion de ce bonus. 
  
-1. Ajoutez à la classe `Employe` une méthode `int getMoisAncienneté()` qui renvoient le nombre de mois correspondant à l'intervalle de temps entre la date d'embauche et maintenant. L'ancienneté est calculée sur le nombre de mois **complets** depuis la date d'embauche (un mois complet est compté du 1er au 30/31).
+1. Ajoutez à la classe `Employe` une méthode `int getMoisAnciennete()` qui renvoient le nombre de mois correspondant à l'intervalle de temps entre la date d'embauche et maintenant. L'ancienneté est calculée sur le nombre de mois **complets** depuis la date d'embauche (un mois complet est compté du 1er au 30/31).
     
     **Astuce :** pour calculer l'ancienneté vous pouvez utiliser la classe `ChronoUnit` qui permet d'effectuer des calculs en fonction de différentes unités temporelles (jours, mois, années etc.). Voici un exemple de code qui permet de calculer le nombre de mois entre la date d'embauche et la date d'aujourd'hui :
  
@@ -88,7 +88,7 @@ L'attribut `double bonus` de la classe `Employe` permet de définir la quantité
     }
     ```
  
-2. Ecrivez plusieurs tests unitaires vérifiant le bon fonctionnement de la méthode `int getMoisAncienneté()` de la classe `Employe`. Vérifiez notamment que deux personnes étant embauchées le même mois de la même année mais à des dates différentes, aient la même ancienneté.
+2. Ecrivez plusieurs tests unitaires vérifiant le bon fonctionnement de la méthode `int getMoisAnciennete()` de la classe `Employe`. Vérifiez notamment que deux personnes étant embauchées le même mois de la même année mais à des dates différentes, aient la même ancienneté.
 
 3. Le patron a décidé de donner la priorité aux anciens pour la distribution du bonus. Ainsi, le bonus sera distribué aux employés suivant leur dates d'embauche : de la plus ancienne, à la plus récente. Le bonus qu'un employé va recevoir est égal à `3*ancienneté`. Écrivez le corps de la méthode `void distribuerBonus()` qui effectue cette tâche **sans utiliser explicitement** un algorithme de tri et sans modifier la classe `Employe`. Écrivez des tests unitaires pour vous assurer que l'employé à bien reçu le bon bonus.
 
@@ -101,10 +101,9 @@ L'attribut `double bonus` de la classe `Employe` permet de définir la quantité
 ### Exercice 4 - indemnités de transport
 
 On souhaite maintenant pouvoir calculer les indemnités de transport pour chaque employé en fonction de la distance entre sa ville de résidence (une données de type `String`) et les locaux de l'entreprise.
+L'attribut `String adresse` de la classe `Employe` correspond à sa ville de résidence. Ses _getter_ et _setter_ permettent la gestion de cet attribut.
 
-1. Ajoutez à la classe `Employe` un attribut `adresse` correspondant à sa ville de résidence. Ajoutez un _getter_ et un _setter_ de cet attribut.
-
-2. Écrivez une classe `GestionDistances` qui initialise et gère une collection statique faisant correspondre une distance (un entier) à une ville. Une ville ne peut être associée qu'à une unique distance, mais une même distance peut être associée à plusieurs villes. À titre d'exemple vous stockerez dans la collection les données suivantes :
+1. Écrivez une classe `GestionDistances` qui initialise et gère une collection statique faisant correspondre une distance (un entier) à une ville. Une ville ne peut être associée qu'à une unique distance, mais une même distance peut être associée à plusieurs villes. À titre d'exemple vous stockerez dans la collection les données suivantes :
     * Montpellier &rightarrow; 0
     * Sète &rightarrow; 36
     * Sommières &rightarrow; 30
@@ -112,8 +111,8 @@ On souhaite maintenant pouvoir calculer les indemnités de transport pour chaque
     * Lunel &rightarrow; 30
     * Béziers &rightarrow; 80
 
-3. Proposez une méthode statique `int getDistance(String ville)` dans la classe `GestionDistances` qui retourne la distance associée à la ville passée en paramètres.
+2. Proposez une méthode statique `int getDistance(String ville)` dans la classe `GestionDistances` qui retourne la distance associée à la ville passée en paramètres.
  
-4. Ajoutez à la classe `Employe` une méthode `double getIndemniteTransport()` retournant l'indemnité qui est dûe à l'employé. La formule de calcul de cette indemnité est `distance  * base`.
+3. Ajoutez à la classe `Employe` une méthode `double getIndemniteTransport()` retournant l'indemnité qui est dûe à l'employé. La formule de calcul de cette indemnité est `distance  * base`.
 
-5. Écrivez des tests unitaires pour vérifier le bon fonctionnement de la méthode `double getIndemniteTransport()`.
+4. Écrivez des tests unitaires pour vérifier le bon fonctionnement de la méthode `double getIndemniteTransport()`.
