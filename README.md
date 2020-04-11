@@ -21,7 +21,7 @@ Avant de démarrer le TP, vérifiez que vous n'avez pas atteint votre quota d'es
 ### Consignes
 - Vous respecterez les différents principes de programmation vues dans le cours et les TPs précédents
 - Toutes vos classes doivent résider dans le paquetage `fr.umontpellier.iut`
-- Les signatures des méthodes et les noms des classes doivent restés inchangés.
+- Les signatures des méthodes et les noms des classes doivent rester inchangés.
 
 
 ## TP9 : _utilisation des collections Java_
