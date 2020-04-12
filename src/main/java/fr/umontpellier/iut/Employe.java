@@ -13,11 +13,10 @@ public class Employe {
 
     private String adresse; // pour exo4
 
-    public Employe(String nrINSEE, String nom, double base, LocalDate dateEmbauche) {
+    public Employe(String nrINSEE, String nom, double base) {
         this.nrINSEE = nrINSEE;
         this.nom = nom;
         this.base = base;
-        this.dateEmbauche = dateEmbauche;
     }
 
     public LocalDate getDateEmbauche() {
