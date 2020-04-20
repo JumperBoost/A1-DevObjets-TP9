@@ -58,6 +58,8 @@ L'entreprise souhaite mieux organiser ses employés. On remarque que la collecti
    **Attention** : Pas de modifications du code précédemment écrit (et donc de l'attribut `lePersonnel`).
 
 3. Écrivez maintenant le corps de la méthode `Collection<Employe> getEmployesDansDesordre()`. À partir de la collection `lePersonnel`, elle devra retourner une autre collection (différente de celle de la question précédente) en enlevant tous les doublons. Naturellement, comme dans la question précédente, **il ne faut pas écrire ou invoquer explicitement un algorithme de recherche de doublons**.
+    
+    **Remarque** : les deux fonctions  `getEmployesDansDesordre()` et `getEmployesOrdonnes()` doivent être totalement indépendantes et ne doivent pas s'appeler entre elles.
 
 4. Ecrivez plusieurs tests unitaires vérifiant la fonctionnalité programmée. Voici le scénario à appliquer dans chaque test :
     * créer une entreprise
