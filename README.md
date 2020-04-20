@@ -53,11 +53,11 @@ L'entreprise souhaite mieux organiser ses employés. On remarque que la collecti
 
 2. Maintenant l'entreprise souhaite pouvoir retrouver l'ensemble de ses employés sans les doublons. De plus, pour une meilleure lisibilité, il serait souhaitable de pouvoir récuperer l'ensemble des employés dans l'ordre. L'ordre choisi est l'ordre _croissant_ suivant le nom et qui en cas d'égalité, applique l'ordre _décroissant_ suivant le numéro INSEE.
     
-    Écrivez le corps de la méthode `Collection<Employe> getEmployesOrdonnes()` qui, à partir de la collection `lePersonnel`, retourne une autre collection respectant ces contraintes et ce **sans invoquer explicitement** une méthode ou algorithme de tri.
+    Écrivez le corps de la méthode `Collection<Employe> getEmployesOrdonnes()` qui, à partir de la collection `lePersonnel`, retourne une autre collection respectant ces contraintes et ce **sans invoquer explicitement une méthode ou algorithme de tri, ni un algorithme de recherche de doublons**.
 
    **Attention** : Pas de modifications du code précédemment écrit (et donc de l'attribut `lePersonnel`).
 
-3. Écrivez maintenant le corps de la méthode `Collection<Employe> getEmployesDansDesordre()`. À partir de la collection `lePersonnel`, elle devra retourner une autre collection en enlevant tous les doublons et ce **sans écrire ou invoquer explicitement un algorithme de recherche de doublons**.
+3. Écrivez maintenant le corps de la méthode `Collection<Employe> getEmployesDansDesordre()`. À partir de la collection `lePersonnel`, elle devra retourner une autre collection (différente de celle de la question précédente) en enlevant tous les doublons. Naturellement, comme dans la question précédente, **il ne faut pas écrire ou invoquer explicitement un algorithme de recherche de doublons**.
 
 4. Ecrivez plusieurs tests unitaires vérifiant la fonctionnalité programmée. Voici le scénario à appliquer dans chaque test :
     * créer une entreprise
