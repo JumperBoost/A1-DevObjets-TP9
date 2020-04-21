@@ -49,7 +49,7 @@ Reprenons la classe `Employe` du [TP5](https://github.com/IUTInfoMontp-M2103/TP5
 
 L'entreprise souhaite mieux organiser ses employés. On remarque que la collection `lePersonnel` peut contenir le même employé plusieurs fois si cette personne occupe des postes différents. Et donc il ne faut surtout pas changer cela.
 
-1. Redéfinissez les méthodes `equals(Object o)` et `hashCode()` de la classe `Employe` afin de distinguer deux employés en fonction de leur numéro INSEE (de type `String`). Vous pouvez utiliser la méthode `hashCode()` de la classe `String`. Dorénavant deux employés seront considérés comme des doublons s'ils ont le même numéro INSEE.
+1. Redéfinissez les méthodes `equals(Object o)` et `hashCode()` de la classe `Employe` afin de distinguer deux employés en fonction de leur numéro INSEE et leur nom (de type `String`). Dorénavant deux employés seront considérés comme des doublons s'ils ont le même numéro INSEE et le même nom.
 
 2. Maintenant l'entreprise souhaite pouvoir retrouver l'ensemble de ses employés sans les doublons. De plus, pour une meilleure lisibilité, il serait souhaitable de pouvoir récuperer l'ensemble des employés dans l'ordre. L'ordre choisi est l'ordre _croissant_ suivant le nom et qui en cas d'égalité, applique l'ordre _décroissant_ suivant le numéro INSEE.
     
