@@ -32,7 +32,7 @@ https://classroom.github.com/a/6KBidiMb
 
 Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche 26 avril à 23h00**
 
-Reprenons la classe `Employe` du [TP5](https://github.com/IUTInfoMontp-M2103/TP5). Pour vous faciliter la tâche, nous l'avons directement écrite et simplifié en enlevant les attributs inutiles pour ce TP. Un attribut `dateEmbauche` avec accesseur et modifieur ont été ajoutés à la classe `Employe`. Le but de ce TP est de proposer différentes organisations des employés dans l'entreprise en fonction des besoins du client. 
+Reprenons la classe `Employe` du [TP5](https://github.com/IUTInfoMontp-M2103/TP5). Pour vous faciliter la tâche, nous l'avons directement écrite et simplifiée en enlevant les attributs inutiles pour ce TP. Un attribut `dateEmbauche` avec accesseur et modifieur ont été ajoutés à la classe `Employe`. Le but de ce TP est de proposer différentes organisations des employés dans l'entreprise en fonction des besoins du client. 
 
 ### Exercice 1 - mise en place
 
