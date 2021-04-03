@@ -77,41 +77,28 @@ L'entreprise souhaite mieux organiser ses employés.
 
 L'entreprise souhaite distribuer des bonus à ses employés en fonction de la date d'embauche. Le problème est que cette somme est évidemment limitée, donc on risque de ne pas pouvoir distribuer des bonus à chaque employé... Cette somme est représentée par l'attribut `double bonusTotal` de la classe `Entreprise`. Un _setter_ permet à l'utilisateur de fixer à tout moment la somme d'argent disponible pour distribuer un bonus aux employés.
 
-L'attribut `double bonus` de la classe `Employe` permet de définir la quantité de bonus qu'un employé va recevoir. Les méthodes _setter_ et _getter_ permettent la gestion de ce bonus. 
- 
-<!-- 1. Ajoutez à la classe `Employe` une méthode `int getMoisAnciennete()` qui renvoie le nombre de mois correspondant à l'intervalle de temps entre la date d'embauche et maintenant. L'ancienneté est calculée sur le nombre de mois **complets** depuis la date d'embauche (un mois complet est compté du 1er au 30/31).
-    
-    **Astuce :** pour calculer l'ancienneté vous pouvez utiliser la classe `ChronoUnit` qui permet d'effectuer des calculs en fonction de différentes unités temporelles (jours, mois, années, etc.). Voici un exemple de code qui permet de calculer le nombre de mois entre la date d'embauche et la date d'aujourd'hui :
-
-    ```java
-    import java.time.LocalDate;
- 
-    class GestionEmployes {
-        public static void main(String[] args) {
-            LocalDate dateEmbauche = LocalDate.of(2021, Month.JANUARY, 28);
-            long nbMois = ChronoUnit.MONTHS.between(dateEmbauche, LocalDate.now());
-        }
-    }
-    ```
-
-2. Écrivez plusieurs tests unitaires vérifiant le bon fonctionnement de la méthode `int getMoisAnciennete()` de la classe `Employe`. Vérifiez notamment que deux personnes étant embauchées le même mois de la même année mais à des dates différentes, aient la même ancienneté.
--->
+L'attribut `double bonus` de la classe `Employe` permet de définir la quantité de bonus qu'un employé va recevoir. Les méthodes _setter_ et _getter_ permettent la gestion de ce bonus.
 
 1. Dans la classe `Employe` la méthode `int getMoisAnciennete()` renvoie le nombre de mois correspondant à l'intervalle de temps entre la date d'embauche et maintenant. Le corps de cette méthode vous est donné et vous ne devez pas le modifier. L'ancienneté est calculée sur le nombre de mois **complets** depuis la date d'embauche à l'aide du type énuméré [`ChronoUnit`](https://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html). Cette classe permet d'effectuer des calculs en fonction de différentes unités temporelles (jours, mois, années, etc.).
 
-   Écrivez plusieurs tests unitaires vérifiant le bon fonctionnement de la méthode `int getMoisAnciennete()` de la classe `Employe`. Vérifiez notamment que deux personnes étant embauchées à des dates différentes, mais ayant effectué le même nombre de mois **complets** aient la même ancienneté. Attention à la variation des longueurs des mois dans une année !
+   Écrivez plusieurs tests unitaires afin de comprendre le fonctionnement de la méthode `int getMoisAnciennete()` de la classe `Employe`. Vérifiez notamment que deux personnes étant embauchées à des dates différentes, mais ayant effectué le même nombre de mois **complets** aient la même ancienneté. Par exemple, un employé embauché depuis 10 mois et 14 jours aura la même ancienneté qu'un employé embauché depuis 10 mois. Prêtez attention à la variation des longueurs des mois dans une année !
 
-1. Le patron a décidé de donner la priorité aux anciens pour la distribution du bonus. Ainsi, le bonus sera distribué aux employés suivant leurs dates d'embauche : de la plus ancienne, à la plus récente. Le bonus qu'un employé va recevoir est égal à `3*ancienneté`. Écrivez le corps de la méthode `void distribuerBonus()` qui effectue cette tâche **sans utiliser explicitement** un algorithme de tri et sans modifier la classe `Employe`. Écrivez des tests unitaires pour vous assurer que l'employé a bien reçu le bon bonus.
+1. Le patron a décidé de donner la priorité aux anciens pour la distribution du bonus. Ainsi, le bonus sera distribué aux employés suivant leurs dates d'embauche : de la plus ancienne, à la plus récente. Le bonus qu'un employé va recevoir est égal à `3*ancienneté`.
 
-   **Remarque importante :** Pour déterminer l'ordre de distribution du bonus de deux employés embauchés à des dates identiques vous prendrez l'ordre d'apparition dans la collection `lePersonnel`.
+   Écrivez le corps de la méthode `void distribuerBonus()` qui effectue cette tâche **sans utiliser explicitement** un algorithme de tri et sans modifier la classe `Employe`. Écrivez des tests unitaires pour vous assurer que l'employé a bien reçu le bon bonus.
+
+   **Remarques :**
+   * Pour déterminer l'ordre de distribution du bonus de deux employés embauchés à des dates identiques vous prendrez l'ordre d'apparition dans la collection `lePersonnel`.
+   * Un employé embauché à plusieurs postes (qui apparaît plusieurs fois dans `lePersonnel`), percevra plusieurs fois le bonus.
+   * Le bonus étant limité, il se peut que certains employés ne touchent rien (notamment les plus jeunes). De même, si vers la fin de la distribution, la quantité de bonus restante est inférieure à `3*ancienneté`, alors l'employé recevra seulement la quantité de bonus restante et tant pis pour son ancienneté !
 
 1. Modifiez la méthode `toString()` de `Employe` afin qu'elle affiche également le bonus que l'employé a reçu.
 
-1. L'entreprise traverse une période de crise et décide de se séparer d'une partie de ses employés. Afin de fidéliser les anciens employés, ce qui a été décidé c'est de licencier les employés ayant travaillé le moins longtemps dans l'entreprise. Sans modifier le code précédemment écrit, ajoutez dans la classe `Entreprise` une méthode `void remercier(int n)` qui permet de licencier `n` employés ayant été embauchés le plus tard.
+1. L'entreprise traverse une période de crise et décide de se séparer d'une partie de ses employés. Afin de fidéliser les anciens employés, ce qui a été décidé c'est de licencier les employés ayant travaillé le moins longtemps dans l'entreprise. Sans modifier le code précédemment écrit, écrivez le code de la méthode `void remercier(int n)` de la classe `Entreprise` afin de licencier `n` employés ayant été embauchés le plus tard.
 
-   **Remarque importante :** Comme dans le cas de la question 2, si deux employés sont embauchés à des dates identiques, vous les remercierez dans l'ordre d'apparition dans la collection `lePersonnel`.
+   **Remarques importantes :** Comme dans le cas de la question 2, si deux employés sont embauchés à des dates identiques, vous les remercierez dans l'ordre d'apparition dans la collection `lePersonnel`. Également, un employé peut être licencié d'un poste, mais pas d'un autre.
 
-   **Astuce** : Pour cette question pensez à vérifier le scénario suivant:
+   **Astuce** : Pour cette question pensez à vérifier le scénario suivant :
    1. Créer 3 employés comme ceci
       * 2 employés _fifi_ et _loulou_ avec le même numéro INSEE et le même nom, et des bases différentes
       * 1 employé _toto_ avec numéro INSEE, nom et base quelconques
@@ -136,6 +123,6 @@ L'attribut `String adresse` de la classe `Employe` correspond à sa ville de ré
 
 1. Proposez une méthode `static int getDistance(String ville)` annonçant qu'elle est susceptible de lever une exception `AdresseInconnueException` et qui retourne la distance associée à la ville passée en paramètres. Si la ville n'est pas présente dans la collection `distances`, alors la méthode devra lever une exception `AdresseInconnueException`.
 
-1. Écrivez le corps de la méthode `double getIndemniteTransport()` de la classe `Employe`. Elle doit retourner l'indemnité qui est dûe à l'employé. La formule de calcul de cette indemnité est `distance  * base`. La formule de calcul de cette indemnité est `distance  * base`. Si la ville n'existe pas, votre méthode devra traiter l'exception correspondante et retourner `0`.
+1. Écrivez le corps de la méthode `double getIndemniteTransport()` de la classe `Employe`. Elle doit retourner l'indemnité qui est dûe à l'employé. La formule de calcul de cette indemnité est `distance  * base`. Si la ville n'existe pas, cette méthode devra traiter l'exception correspondante et retourner `0`.
 
 1. Écrivez des tests unitaires pour vérifier le bon fonctionnement de la méthode `double getIndemniteTransport()`.

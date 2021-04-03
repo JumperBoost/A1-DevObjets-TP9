@@ -31,5 +31,7 @@ public class Entreprise {
         throw new RuntimeException("Méthode à implémenter");
     }
 
-
+    public void remercier(int n) {
+        throw new RuntimeException("Méthode à implémenter");
+    }
 }
