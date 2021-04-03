@@ -1,6 +1,7 @@
 package fr.umontpellier.iut;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Employe {
     private String nrINSEE;
@@ -51,6 +52,11 @@ public class Employe {
 
     public void setAdresse(String adresse) {
         this.adresse = adresse;
+    }
+
+    public int getMoisAnciennete() {
+        long intervalleEnMois = ChronoUnit.MONTHS.between(dateEmbauche, LocalDate.now());
+        return (int) intervalleEnMois;
     }
 
     public double getIndemniteTransport() {
