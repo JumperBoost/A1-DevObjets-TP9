@@ -68,9 +68,10 @@ L'entreprise souhaite mieux organiser ses employés.
 1. Écrivez plusieurs tests unitaires vérifiant la fonctionnalité programmée. Voici le scénario à appliquer dans chaque test :
     * créer une entreprise
     * créer plusieurs employés (au moins 4) avec des noms différents et/ou numéros INSEE différents
-    * vérifiez avec des _assertions_ (`assertEquals(...)`, `assertNotEquals(...)`, `assertTrue(...)`, `assertFalse(...)` etc.) que la méthode `getEmployesOrdonnes()` fonctionne correctement. Vous vérifierez notamment que les collections retournées par `getEmployesOrdonnes()` et `getEmployesDansDesordre()` sont de même tailles (et contiennent les mêmes employés). Pour la liste exhaustive des assertions en _Junit 5_ :
-        * un tutoriel en ligne : https://www.petrikainulainen.net/programming/testing/junit-5-tutorial-writing-assertions-with-junit-5-api/
-        * l'API de la classe `Assertions` : https://junit.org/junit5/docs/5.4.0/api/org/junit/jupiter/api/Assertions.html
+    * vérifiez avec des _assertions_ (`assertEquals(...)`, `assertNotEquals(...)`, `assertTrue(...)`, `assertFalse(...)` etc.) que la méthode `getEmployesOrdonnes()` fonctionne correctement. Vous vérifierez notamment que les collections retournées par `getEmployesOrdonnes()` et `getEmployesDansDesordre()` sont de même tailles (et contiennent les mêmes employés). Vous trouverez la liste exhaustive des assertions en _Junit 5_ dans [l'API de la classe `Assertions`](https://junit.org/junit5/docs/5.4.0/api/org/junit/jupiter/api/Assertions.html).
+   
+   <!-- [un tutoriel en ligne](https://www.petrikainulainen.net/programming/testing/junit-5-tutorial-writing-assertions-with-junit-5-api/) -->
+        
 
 
 ### Exercice 3 - priorité aux anciens
@@ -102,7 +103,7 @@ L'attribut `double bonus` de la classe `Employe` permet de définir la quantité
    1. Créer 3 employés comme ceci
       * 2 employés _fifi_ et _loulou_ avec le même numéro INSEE et le même nom, et des bases différentes
       * 1 employé _toto_ avec numéro INSEE, nom et base quelconques
-   2. Embaucher d'abord _toto_ avec une date d'embauche la plus ancienne (disons 1er janvier 2000), ensuite _fifi_ (23 mars 2020) et ensuite _loulou_ (25 mars 2020)
+   2. Embaucher d'abord _toto_ avec une date d'embauche la plus ancienne (disons 1er janvier 2000), ensuite _fifi_ (23 mars 2021) et ensuite _loulou_ (25 mars 2021)
    3. Remercier qu'un seul employé en invoquant `remercier(1)` et vérifier que tout fonctionne correctement.
    
 
