@@ -8,7 +8,7 @@
 * **Enseignants:** [Marin Bougeret](mailto:marin.bougeret@umontpellier.fr), [Romain Lebreton](mailto:romain.lebreton@umontpellier.fr), [Sophie Nabitz](mailto:sophie.nabitz@univ-avignon.fr), [Victor Poupet](mailto:victor.poupet@umontpellier.fr), [Petru Valicov](mailto:petru.valicov@umontpellier.fr)
 * Le [forum Piazza](https://piazza.com/class/kjifrxy1n0i3xa) de ce cours pour poser vos questions
 * [Email](mailto:petru.valicov@umontpellier.fr) pour une question d'ordre privée concernant le cours.
-* Le [sujet du TP](https://gitprint.com/IUTInfoMontp-M2103/TP8) en format .pdf téléchargeable et imprimable.
+* Le [sujet du TP](TP9.pdf) en format .pdf téléchargeable et imprimable.
 
 <!--Avant de démarrer le TP, vérifiez que vous n'avez pas atteint votre quota d'espace de stockage autorisé :
 
@@ -28,9 +28,7 @@
 
 ## TP9 : _utilisation des collections Java_
 
-Cliquez sur le lien ci-dessous pour faire votre fork privé du TP :
-
-https://classroom.github.com/a/6KBidiMb
+Voici [le lien GitHub Classroom](https://classroom.github.com/a/HaN8Gmx6) pour faire votre fork privé du TP.
 
 Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche 18 avril à 23h00**
 
