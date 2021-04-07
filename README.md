@@ -143,3 +143,5 @@ La classe `AbstractEmployeBuilder` est paramétrée par un type `T` dont le doma
 Observez comment ces deux fonctions abstraites sont redéfinies dans les trois classes builders : `EmployeBuilder`, `TechnicienBuilder` et `FabricantBuilder`. Pour illustrer le fonctionnement, dans la classe principale `GestionEmployesBuilders` on instancie des différents types d'employé, on les affiche et on leur demande d'exécuter les tâches spécifiques. 
 
 Vous remarquerez que dans cette solution il manque le cas des commerciaux. En vous inspirant de la solution existante pour les classes `Employe`, `Fabricant` et `Technicien`, modifiez les classes `Commercial`,`Vendeur` et `Representant` afin de permettre l'instanciation des différents sous-types de commerciaux de manière analogue : avec des builders et en évitant la duplication de code.
+
+Une explication approfondie concernant les builders hiérarchiques est donnée dans _Effective Java_ de J. Blosch, (3ème édition).
