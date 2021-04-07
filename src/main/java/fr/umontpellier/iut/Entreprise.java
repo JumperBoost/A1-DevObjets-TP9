@@ -23,6 +23,10 @@ public class Entreprise {
         throw new RuntimeException("Méthode à implémenter");
     }
 
+    public double getBonusTotal() {
+        return bonusTotal;
+    }
+
     public void setBonusTotal(double bonusTotal) {
         this.bonusTotal = bonusTotal;
     }
