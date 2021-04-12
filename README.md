@@ -110,7 +110,7 @@ L'attribut `double bonus` de la classe `Employe` permet de définir la quantité
 On souhaite maintenant pouvoir calculer les indemnités de transport pour chaque employé en fonction de la distance entre sa ville de résidence (une donnée de type `String`) et les locaux de l'entreprise.
 L'attribut `String adresse` de la classe `Employe` correspond à sa ville de résidence. Le _getter_ et le _setter_ permettent la gestion de cet attribut.
 
-1. Écrivez une classe `GestionDistances` qui initialise et gère une collection statique faisant correspondre une distance (un entier) à une ville. Une ville ne peut être associée qu'à une unique distance, mais une même distance peut être associée à plusieurs villes. À titre d'exemple vous stockerez dans la collection les données suivantes :
+1. La classe `GestionDistances` gère une collection statique faisant correspondre une distance (un entier) à une ville. Une ville ne peut être associée qu'à une unique distance, mais une même distance peut être associée à plusieurs villes. Initialisez cette collection (avec une méthode statique ou au chargement de la classe) avec les données suivantes :
     * Montpellier &rightarrow; 0
     * Sète &rightarrow; 36
     * Sommières &rightarrow; 30
@@ -118,9 +118,11 @@ L'attribut `String adresse` de la classe `Employe` correspond à sa ville de ré
     * Lunel &rightarrow; 30
     * Béziers &rightarrow; 80
    
+   **Attention :** la collection `distances` est statique, donc n'ajoutez pas de constructeur à la classe `GestionDistances`...
+   
 1. Déclarez une classe d'exception contrôlée `AdresseInconnueException` héritant de `Exception`. Le constructeur de cette classe aura comme argument un objet `String nomVille` et appellera le constructeur de la classe de base (`Exception`) avec le message : "_La ville " + `nomVille` + ” n'existe pas_”
 
-1. Proposez une méthode `static int getDistance(String ville)` annonçant qu'elle est susceptible de lever une exception `AdresseInconnueException` et qui retourne la distance associée à la ville passée en paramètres. Si la ville n'est pas présente dans la collection `distances`, alors la méthode devra lever une exception `AdresseInconnueException`.
+1. La méthode `static int getDistance(String ville)` de `GestionDistances` devra retourner la distance associée à la ville passée en paramètre. Modifiez la signature de cette fonction annonçant qu'elle est **susceptible** de lever une exception `AdresseInconnueException`. Écrivez ensuite le corps de `static int getDistance(String ville)` en veillant à ce qu'elle **lève** une exception `AdresseInconnueException` si la ville n'est pas présente dans la collection `distances`.
 
 1. Écrivez le corps de la méthode `double getIndemniteTransport()` de la classe `Employe`. Elle doit retourner l'indemnité qui est dûe à l'employé. La formule de calcul de cette indemnité est `distance  * base`. Si la ville n'existe pas, cette méthode devra traiter l'exception correspondante et retourner `0`.
 
