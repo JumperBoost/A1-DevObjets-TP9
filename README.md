@@ -28,7 +28,7 @@
 
 ## TP9 : _utilisation des collections Java_
 
-Voici [le lien GitHub Classroom](https://classroom.github.com/a/HaN8Gmx6) pour faire votre fork privé du TP.
+Voici [le lien GitHub Classroom](https://classroom.github.com/a/8-1PVUB0) pour faire votre fork privé du TP.
 
 Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche 25 avril à 23h00**
 
