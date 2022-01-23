@@ -1,12 +1,12 @@
 # ![](ressources/logo.jpeg)
 
-# Bases de la programmation orientée objet
+# Développement Orienté Objets
 
 ### IUT Montpellier-Sète – Département Informatique
 
-* **Cours:** [M2103](http://cache.media.enseignementsup-recherche.gouv.fr/file/25/09/7/PPN_INFORMATIQUE_256097.pdf) - support [ici](https://github.com/IUTInfoMontp-M2103/Ressources)
+* **Cours:** [M2103](http://cache.media.enseignementsup-recherche.gouv.fr/file/25/09/7/PPN_INFORMATIQUE_256097.pdf) - support [ici](https://gitlabinfo.iutmontp.univ-montp2.fr/dev-objets/Ressources)
 * **Enseignants:** [Marin Bougeret](mailto:marin.bougeret@umontpellier.fr), [Romain Lebreton](mailto:romain.lebreton@umontpellier.fr), [Sophie Nabitz](mailto:sophie.nabitz@univ-avignon.fr), [Victor Poupet](mailto:victor.poupet@umontpellier.fr), [Petru Valicov](mailto:petru.valicov@umontpellier.fr)
-* Le [forum Piazza](https://piazza.com/class/kjifrxy1n0i3xa) de ce cours pour poser vos questions
+* Le [forum Piazza](https://piazza.com/class/kyo4oooauez252) de ce cours pour poser vos questions
 * [Email](mailto:petru.valicov@umontpellier.fr) pour une question d'ordre privée concernant le cours.
 * Le [sujet du TP](TP9.pdf) en format .pdf téléchargeable et imprimable.
 
@@ -32,7 +32,7 @@ Voici [le lien GitHub Classroom](https://classroom.github.com/a/8-1PVUB0) pour f
 
 Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche 25 avril à 23h00**
 
-Reprenons la classe `Employe` du [TP5](https://github.com/IUTInfoMontp-M2103/TP5). Pour vous faciliter la tâche, nous l'avons directement écrite et simplifiée en enlevant les attributs inutiles pour ce TP. Un attribut `dateEmbauche` avec accesseur et modifieur ont été ajoutés à la classe `Employe`. Le but de ce TP est de proposer différentes organisations des employés dans l'entreprise en fonction des besoins du client. 
+Reprenons la classe `Employe` du [TP5](https://gitlabinfo.iutmontp.univ-montp2.fr/dev-objets/TP5). Pour vous faciliter la tâche, nous l'avons directement écrite et simplifiée en enlevant les attributs inutiles pour ce TP. Un attribut `dateEmbauche` avec accesseur et modifieur ont été ajoutés à la classe `Employe`. Le but de ce TP est de proposer différentes organisations des employés dans l'entreprise en fonction des besoins du client. 
 
 ### Exercice 1 - mise en place
 
@@ -132,7 +132,7 @@ L'attribut `String adresse` de la classe `Employe` correspond à sa ville de ré
 
 Pour cette partie, vous allez travailler **exclusivement** dans les classes du package `fr.umontpellier.iut.bonus`, le code pour les exercices précédents (du package `fr.umontpellier.iut`) devrait rester intact.
 
-Souvenez-vous que dans le [TP5](https://github.com/IUTInfoMontp-M2103/TP5) il y avait toute une hiérarchie de classes héritant de `Employe`, chacune ayant des spécificités. À l'époque, lorsque vous avez généré des builders pour construire des objets de ces classes, plusieurs duplications de code entre les différentes classes builder sont apparues. Il est temps de corriger cela !
+Souvenez-vous que dans le [TP5](https://gitlabinfo.iutmontp.univ-montp2.fr/dev-objets/TP5) il y avait toute une hiérarchie de classes héritant de `Employe`, chacune ayant des spécificités. À l'époque, lorsque vous avez généré des builders pour construire des objets de ces classes, plusieurs duplications de code entre les différentes classes builder sont apparues. Il est temps de corriger cela !
 
 Dans le package `fr.umontpellier.iut.bonus`, une solution partielle à ce problème de duplication de code vous est proposée. Une classe abstraite `AbstractEmployeBuilder` permet de factoriser l'ensemble des fonctions de construction communes (à tous les `Employe`). Cette classe est héritée par des builder spécifiques : `EmployeBuilder`, `TechnicienBuilder` et `FabricantBuilder`. En fonction du type concret d'employé, chacune de ces sous-classes ajoute les fonctions supplémentaires pour la construction de l'objet correspondant. Une particularité est que les classes builder sont gérées comme des classes internes statiques (par exemple `TechnicienBuilder` est une classe statique interne de la classe `Technicien`). Ceci pour favoriser l'encapsulation des différents sous-types de `Employe` (pour plus d'infos sur les classes internes voir [ce tutoriel Oracle](https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html)).
 
