@@ -106,7 +106,7 @@ L'attribut `double bonus` de la classe `Employe` permet de définir la quantité
    1. Créer 3 employés comme ceci
       * 2 employés _fifi_ et _loulou_ avec le même numéro INSEE et le même nom et des bases différentes
       * 1 employé _toto_ avec numéro INSEE, nom et base quelconques
-   2. Embaucher d'abord _toto_ avec une date d'embauche la plus ancienne (disons 1er janvier 2000), ensuite _fifi_ (23 mars 2022) et ensuite _loulou_ (30 mars 2021)
+   2. Embaucher d'abord _toto_ avec une date d'embauche la plus ancienne (disons 1er janvier 2000), ensuite _fifi_ (23 mars 2022) et ensuite _loulou_ (30 mars 2022)
    3. Remercier qu'un seul employé en invoquant `remercier(1)` et vérifier que tout fonctionne correctement.
    
 
