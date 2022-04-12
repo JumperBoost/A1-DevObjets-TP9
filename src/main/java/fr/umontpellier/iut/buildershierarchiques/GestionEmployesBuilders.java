@@ -1,4 +1,4 @@
-package fr.umontpellier.iut.bonus;
+package fr.umontpellier.iut.buildershierarchiques;
 
 public class GestionEmployesBuilders {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package fr.umontpellier.iut.bonus;
+package fr.umontpellier.iut.buildershierarchiques;
 
 public class Technicien extends Employe {
     private String outilTechnique;

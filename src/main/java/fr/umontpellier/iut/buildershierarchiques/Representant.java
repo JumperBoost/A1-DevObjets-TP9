@@ -1,4 +1,4 @@
-package fr.umontpellier.iut.bonus;
+package fr.umontpellier.iut.buildershierarchiques;
 
 public class Representant extends Commercial{
 

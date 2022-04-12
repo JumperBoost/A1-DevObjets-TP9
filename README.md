@@ -133,13 +133,13 @@ L'attribut `String adresse` de la classe `Employe` correspond à sa ville de ré
 
 1. Écrivez des tests unitaires pour vérifier le bon fonctionnement de la méthode `double getIndemniteTransport()`.
 
-### Exercice 5 (bonus) - builders hiérarchiques
+### Exercice 5 - builders hiérarchiques
 
-Pour cette partie, vous allez travailler **exclusivement** dans les classes du package `fr.umontpellier.iut.bonus`, le code pour les exercices précédents (du package `fr.umontpellier.iut`) devrait rester intact.
+Pour cette partie, vous allez travailler **exclusivement** dans les classes du package `fr.umontpellier.iut.buildershierarchiques`, le code pour les exercices précédents (du package `fr.umontpellier.iut`) doit rester intact.
 
 Souvenez-vous que dans le [TP5](https://gitlabinfo.iutmontp.univ-montp2.fr/dev-objets/TP5) il y avait toute une hiérarchie de classes héritant de `Employe`, chacune ayant des spécificités. À l'époque, lorsque vous avez généré des builders pour construire des objets de ces classes, plusieurs duplications de code entre les différentes classes builder sont apparues. Il est temps de corriger cela !
 
-Dans le package `fr.umontpellier.iut.bonus`, une solution partielle à ce problème de duplication de code vous est proposée. Une classe abstraite `AbstractEmployeBuilder` permet de factoriser l'ensemble des fonctions de construction communes (à tous les `Employe`). Cette classe est héritée par des builder spécifiques : `EmployeBuilder`, `TechnicienBuilder` et `FabricantBuilder`. En fonction du type concret d'employé, chacune de ces sous-classes ajoute les fonctions supplémentaires pour la construction de l'objet correspondant. Une particularité est que les classes builder sont gérées comme des classes internes statiques (par exemple `TechnicienBuilder` est une classe statique interne de la classe `Technicien`). Ceci pour favoriser l'encapsulation des différents sous-types de `Employe` (pour plus d'infos sur les classes internes voir [ce tutoriel Oracle](https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html)).
+Dans le package `fr.umontpellier.iut.buildershierarchiques`, une solution partielle à ce problème de duplication de code vous est proposée. Une classe abstraite `AbstractEmployeBuilder` permet de factoriser l'ensemble des fonctions de construction communes (à tous les `Employe`). Cette classe est héritée par des builder spécifiques : `EmployeBuilder`, `TechnicienBuilder` et `FabricantBuilder`. En fonction du type concret d'employé, chacune de ces sous-classes ajoute les fonctions supplémentaires pour la construction de l'objet correspondant. Une particularité est que les classes builder sont gérées comme des classes internes statiques (par exemple `TechnicienBuilder` est une classe statique interne de la classe `Technicien`). Ceci pour favoriser l'encapsulation des différents sous-types de `Employe` (pour plus d'infos sur les classes internes voir [ce tutoriel Oracle](https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html)).
 
 Voici le diagramme de classes de cette solution partielle :
 
