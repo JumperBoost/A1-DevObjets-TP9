@@ -57,7 +57,7 @@ L'entreprise souhaite mieux organiser ses employés.
 
 1. Redéfinissez les méthodes `equals(Object o)` et `hashCode()` de la classe `Employe` afin de distinguer deux employés en fonction de leur numéro INSEE et leur nom (de type `String`). Dorénavant deux employés seront considérés comme des doublons s'ils ont le même numéro INSEE et le même nom.
 
-    **Remarque** : la collection `lePersonnel` peut contenir le même employé (même numéro INSEE et même nom) plusieurs fois si cette personne occupe des postes différents. Donc ici vous ne devez pas toucher au code de l'objet `lePersonnel` de la classe `Entreprise`.
+    **Remarque** : la collection `lePersonnel` peut contenir le même employé (deux objets `Employe` avec même numéro INSEE et même nom) plusieurs fois si cette personne occupe des postes différents. Donc ici vous ne devez pas toucher au code de l'objet `lePersonnel` de la classe `Entreprise`.
 
 1. Écrivez le corps de la méthode `Collection<Employe> getEmployesDansDesordre()`. À partir de la collection `lePersonnel`, elle devra retourner une autre collection en enlevant tous les doublons, et ce, **sans invoquer explicitement un algorithme de recherche de doublons**.
 
@@ -72,7 +72,7 @@ L'entreprise souhaite mieux organiser ses employés.
 1. Écrivez plusieurs tests unitaires vérifiant la fonctionnalité programmée. Voici le scénario à appliquer dans chaque test :
     * créer une entreprise
     * créer plusieurs employés (au moins 4) avec des noms différents et/ou numéros INSEE différents
-    * vérifiez avec des _assertions_ (`assertEquals(...)`, `assertNotEquals(...)`, `assertTrue(...)`, `assertFalse(...)` etc.) que la méthode `getEmployesOrdonnes()` fonctionne correctement. Vous vérifierez notamment que les collections retournées par `getEmployesOrdonnes()` et `getEmployesDansDesordre()` sont de mêmes tailles (et contiennent les mêmes employés). Vous trouverez la liste exhaustive des assertions en _Junit 5_ dans [l'API de la classe `Assertions`](https://junit.org/junit5/docs/5.4.0/api/org/junit/jupiter/api/Assertions.html).
+    * vérifiez avec des _assertions_ (`assertEquals(...)`, `assertNotEquals(...)`, `assertTrue(...)`, `assertFalse(...)`, `assertIterableEquals(...)` etc.) que la méthode `getEmployesOrdonnes()` fonctionne correctement. Vous vérifierez notamment que les collections retournées par `getEmployesOrdonnes()` et `getEmployesDansDesordre()` sont de mêmes tailles (et contiennent les mêmes employés). Vous trouverez la liste exhaustive des assertions en _Junit 5_ dans [l'API de la classe `Assertions`](https://junit.org/junit5/docs/5.4.0/api/org/junit/jupiter/api/Assertions.html).
    
    <!-- [un tutoriel en ligne](https://www.petrikainulainen.net/programming/testing/junit-5-tutorial-writing-assertions-with-junit-5-api/) -->
         
