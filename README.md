@@ -43,7 +43,7 @@ Reprenons la classe `Employe` du [TP5](https://gitlabinfo.iutmontp.univ-montp2.f
 
 1. La classe `Entreprise` gère les employés à travers l'attribut `lePersonnel`- une [`Collection`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html) (la structure de données itérable la plus générale possible). Ajoutez un constructeur sans paramètres instanciant cette collection en tant que `ArrayList`.
 
-2. Complétez les méthodes `void embaucher(Employe e, LocalDate dateEmbauche)` et `void licencier(Employe e)` de la classe `Entreprise` afin mettre à jour la liste d'employés de manière correspondante.
+2. Complétez les méthodes `void embaucher(Employe e, LocalDate dateEmbauche)` et `void licencier(Employe e)` de la classe `Entreprise` afin de mettre à jour la liste d'employés de manière correspondante.
 
    **Remarque importante** : Pour simplifier, vous supposerez qu'une même référence `Employe` ne sera passée qu'une seule fois en paramètres à la méthode `embaucher(Employe e, LocalDate dateEmbauche)`. Donc vous n'avez pas à gérer le cas où l'utilisateur de votre application embauche le **même objet** `Employe` dans la même `Entreprise`.
 
@@ -140,7 +140,7 @@ Pour cette partie, vous allez travailler **exclusivement** dans les classes du p
 
 Souvenez-vous que dans le [TP5](https://gitlabinfo.iutmontp.univ-montp2.fr/dev-objets/TP5) il y avait toute une hiérarchie de classes héritant de `Employe`, chacune ayant des spécificités. À l'époque, lorsque vous avez généré des builders pour construire des objets de ces classes, plusieurs duplications de code entre les différentes classes builder sont apparues. Il est temps de corriger cela !
 
-Dans le package `fr.umontpellier.iut.buildershierarchiques`, une solution partielle à ce problème de duplication de code vous est proposée. Une classe abstraite `AbstractEmployeBuilder` permet de factoriser l'ensemble des fonctions de construction communes (à tous les `Employe`). Cette classe est héritée par des builder spécifiques : `EmployeBuilder`, `TechnicienBuilder` et `FabricantBuilder`. En fonction du type concret d'employé, chacune de ces sous-classes ajoute les fonctions supplémentaires pour la construction de l'objet correspondant. Une particularité est que les classes builder sont gérées comme des classes internes statiques (par exemple `TechnicienBuilder` est une classe statique interne de la classe `Technicien`). Ceci pour favoriser l'encapsulation des différents sous-types de `Employe` (pour plus d'infos sur les classes internes voir [ce tutoriel Oracle](https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html)).
+Dans le package `fr.umontpellier.iut.buildershierarchiques`, une solution partielle à ce problème de duplication de code vous est proposée. Une classe abstraite `AbstractEmployeBuilder` permet de factoriser l'ensemble des fonctions de construction communes (à tous les `Employe`). Cette classe est héritée par des builders spécifiques : `EmployeBuilder`, `TechnicienBuilder` et `FabricantBuilder`. En fonction du type concret d'employé, chacune de ces sous-classes ajoute les fonctions supplémentaires pour la construction de l'objet correspondant. Une particularité est que les classes builder sont gérées comme des classes internes statiques (par exemple `TechnicienBuilder` est une classe statique interne de la classe `Technicien`). Ceci pour favoriser l'encapsulation des différents sous-types de `Employe` (pour plus d'infos sur les classes internes voir [ce tutoriel Oracle](https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html)).
 
 Voici le diagramme de classes de cette solution partielle :
 
@@ -150,7 +150,7 @@ La classe `AbstractEmployeBuilder` est paramétrée par un type `T` dont le doma
 * la méthode `build()` retourne par défaut l'`Employe` construit
 * la méthode `self()` retourne un objet de type `T` - dans les sous-classes de `AbstractEmployeBuilder`, `T` sera remplacé par le type effectif de builder
 
-Observez comment ces deux fonctions abstraites sont redéfinies dans les trois classes builders : `EmployeBuilder`, `TechnicienBuilder` et `FabricantBuilder`. Pour illustrer le fonctionnement, dans la classe principale `GestionEmployesBuilders` on instancie des différents types d'employé, on les affiche et on leur demande d'exécuter les tâches spécifiques.
+Observez comment ces deux fonctions abstraites sont redéfinies dans les trois classes builders : `EmployeBuilder`, `TechnicienBuilder` et `FabricantBuilder`. Pour illustrer le fonctionnement, dans la classe principale `GestionEmployesBuilders` on instancie différents types d'employé, on les affiche et on leur demande d'exécuter les tâches spécifiques.
 
 Vous remarquerez que dans cette solution, il manque le cas des commerciaux. En vous inspirant de la solution existante pour les classes `Employe`, `Fabricant` et `Technicien`, modifiez les classes `Commercial`,`Vendeur` et `Representant` comme suit :
 * faites hériter `Commercial` de `Employe`
