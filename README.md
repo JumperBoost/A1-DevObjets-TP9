@@ -41,14 +41,15 @@ Reprenons la classe `Employe` du [TP5](https://gitlabinfo.iutmontp.univ-montp2.f
 
 ### Exercice 1 - mise en place
 
-1. La classe `Entreprise` gère les employés sous forme d'une collection (la plus générale possible). Ajoutez un constructeur sans paramètres instanciant cette collection en tant que `ArrayList`.
+1. La classe `Entreprise` gère les employés à travers l'attribut `lePersonnel`- une [`Collection`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html) (la structure de données itérable la plus générale possible). Ajoutez un constructeur sans paramètres instanciant cette collection en tant que `ArrayList`.
 
-1. Complétez les méthodes `void embaucher(Employe e, LocalDate dateEmbauche)` et `void licencier(Employe e)` de la classe `Entreprise` afin mettre à jour la liste d'employés de manière correspondante.
+2. Complétez les méthodes `void embaucher(Employe e, LocalDate dateEmbauche)` et `void licencier(Employe e)` de la classe `Entreprise` afin mettre à jour la liste d'employés de manière correspondante.
 
-1. Redéfinissez la méthode `String toString()` de la classe `Entreprise` pour afficher ses informations.
+   **Remarque importante** : Pour simplifier, vous supposerez qu'une même référence `Employe` ne sera passée qu'une seule fos en paramètres à la méthode `embaucher(Employe e, LocalDate dateEmbauche)`. Donc vous n'avez pas à gérer le cas où l'utilisateur de votre application embauche le **même objet** `Employe` dans la même `Entreprise`.
 
-1. Vérifiez votre programme en créant dans la classe principale (`GestionEmployes`) une entreprise et en embauchant plusieurs employés. Vous afficherez l'état de l'entreprise après chacune des opérations.
+3. Redéfinissez la méthode `String toString()` de la classe `Entreprise` pour afficher ses informations.
 
+4. Vérifiez votre programme en créant dans la classe principale (`GestionEmployes`) une entreprise et en embauchant plusieurs employés. Vous afficherez l'état de l'entreprise après chacune des opérations.
 
 ### Exercice 2 - organisation des employés
 
@@ -62,7 +63,7 @@ L'entreprise souhaite mieux organiser ses employés.
 
    **Attention** : Pas de modifications du code précédemment écrit (et donc de l'attribut `lePersonnel`).
 
-1. Maintenant, pour une meilleure lisibilité, l'entreprise souhaite pouvoir retrouver l'ensemble de ses employés sans les doublons mais dans l'ordre. L'ordre choisi est l'ordre _croissant_ suivant le nom et qui en cas d'égalité, applique l'ordre _décroissant_ suivant le numéro INSEE.
+1. Maintenant, pour une meilleure lisibilité, l'entreprise souhaite pouvoir retrouver l'ensemble de ses employés sans les doublons, mais dans l'ordre. L'ordre choisi est l'ordre _croissant_ suivant le nom et qui en cas d'égalité, applique l'ordre _décroissant_ suivant le numéro INSEE.
     
     Écrivez le corps de la méthode `Collection<Employe> getEmployesOrdonnes()` qui, à partir de la collection `lePersonnel`, retourne une autre collection respectant ces contraintes. Naturellement, comme dans la question précédente, **il ne faut pas écrire ou invoquer explicitement un algorithme de recherche de doublons, ni un algorithme de tri**.
 
