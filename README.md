@@ -45,7 +45,7 @@ Reprenons la classe `Employe` du [TP5](https://gitlabinfo.iutmontp.univ-montp2.f
 
 2. Complétez les méthodes `void embaucher(Employe e, LocalDate dateEmbauche)` et `void licencier(Employe e)` de la classe `Entreprise` afin mettre à jour la liste d'employés de manière correspondante.
 
-   **Remarque importante** : Pour simplifier, vous supposerez qu'une même référence `Employe` ne sera passée qu'une seule fos en paramètres à la méthode `embaucher(Employe e, LocalDate dateEmbauche)`. Donc vous n'avez pas à gérer le cas où l'utilisateur de votre application embauche le **même objet** `Employe` dans la même `Entreprise`.
+   **Remarque importante** : Pour simplifier, vous supposerez qu'une même référence `Employe` ne sera passée qu'une seule fois en paramètres à la méthode `embaucher(Employe e, LocalDate dateEmbauche)`. Donc vous n'avez pas à gérer le cas où l'utilisateur de votre application embauche le **même objet** `Employe` dans la même `Entreprise`.
 
 3. Redéfinissez la méthode `String toString()` de la classe `Entreprise` pour afficher ses informations.
 
