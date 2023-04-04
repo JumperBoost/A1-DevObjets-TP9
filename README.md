@@ -45,7 +45,7 @@ Reprenons la classe `Employe` du [TP5](https://gitlabinfo.iutmontp.univ-montp2.f
 
 2. Complétez les méthodes `void embaucher(Employe e, LocalDate dateEmbauche)` et `void licencier(Employe e)` de la classe `Entreprise` afin de mettre à jour la liste d'employés de manière correspondante.
 
-   **Remarque importante** : Pour simplifier, vous supposerez qu'une même référence `Employe` ne sera passée qu'une seule fois en paramètres à la méthode `embaucher(Employe e, LocalDate dateEmbauche)`. Donc vous n'avez pas à gérer le cas où l'utilisateur de votre application embauche le **même objet** `Employe` dans la même `Entreprise`.
+   **Remarque importante** : Pour simplifier, vous supposerez qu'une même référence `Employe` ne sera passée qu'une seule fois en paramètres à la méthode `embaucher(Employe e, LocalDate dateEmbauche)`. Donc, vous n'avez pas à gérer le cas où l'utilisateur de votre application embauche le **même objet** `Employe` dans la même `Entreprise`.
 
 3. Redéfinissez la méthode `String toString()` de la classe `Entreprise` pour afficher ses informations.
 
@@ -57,7 +57,7 @@ L'entreprise souhaite mieux organiser ses employés.
 
 1. Redéfinissez les méthodes `equals(Object o)` et `hashCode()` de la classe `Employe` afin de distinguer deux employés en fonction de leur numéro INSEE et leur nom (de type `String`). Dorénavant deux employés seront considérés comme des doublons s'ils ont le même numéro INSEE et le même nom.
 
-    **Remarque** : la collection `lePersonnel` peut contenir le même employé (deux objets `Employe` avec même numéro INSEE et même nom) plusieurs fois si cette personne occupe des postes différents. Donc ici vous ne devez pas toucher au code de l'objet `lePersonnel` de la classe `Entreprise`.
+    **Remarque** : la collection `lePersonnel` peut contenir le même employé (deux objets `Employe` avec même numéro INSEE et même nom) plusieurs fois si cette personne occupe des postes différents. Donc ici, vous ne devez pas toucher au code de l'objet `lePersonnel` de la classe `Entreprise`.
 
 1. Écrivez le corps de la méthode `Collection<Employe> getEmployesDansDesordre()`. À partir de la collection `lePersonnel`, elle devra retourner une autre collection en enlevant tous les doublons, et ce, **sans invoquer explicitement un algorithme de recherche de doublons**.
 
@@ -103,11 +103,11 @@ L'attribut `double bonus` de la classe `Employe` permet de définir la quantité
 
    **Remarques importantes :** Comme dans le cas de la question 2, si deux employés sont embauchés à des dates identiques, vous les remercierez dans l'ordre d'apparition dans la collection `lePersonnel`. Également, un employé peut être licencié d'un poste, mais pas d'un autre.
 
-   **Astuce** : Pour cette question pensez à vérifier le scénario suivant :
+   **Astuce** : Pour cette question, pensez à vérifier le scénario suivant :
    1. Créer 3 employés comme ceci
       * 2 employés _fifi_ et _loulou_ avec le même numéro INSEE et le même nom et des bases différentes
       * 1 employé _toto_ avec numéro INSEE, nom et base quelconques
-   2. Embaucher d'abord _toto_ avec une date d'embauche la plus ancienne (disons 1er janvier 2000), ensuite _fifi_ (23 mars 2022) et ensuite _loulou_ (30 mars 2022)
+   2. Embaucher d'abord _toto_ avec une date d'embauche la plus ancienne (disons 1er janvier 2000), ensuite _fifi_ (18 mars 2023) et ensuite _loulou_ (30 mars 2023)
    3. Remercier qu'un seul employé en invoquant `remercier(1)` et vérifier que tout fonctionne correctement.
    
 
@@ -138,7 +138,7 @@ L'attribut `String adresse` de la classe `Employe` correspond à sa ville de ré
 
 Pour cette partie, vous allez travailler **exclusivement** dans les classes du package `fr.umontpellier.iut.buildershierarchiques`, le code pour les exercices précédents (du package `fr.umontpellier.iut`) doit rester intact.
 
-Souvenez-vous que dans le [TP5](https://gitlabinfo.iutmontp.univ-montp2.fr/dev-objets/TP5) il y avait toute une hiérarchie de classes héritant de `Employe`, chacune ayant des spécificités. À l'époque, lorsque vous avez généré des builders pour construire des objets de ces classes, plusieurs duplications de code entre les différentes classes builder sont apparues. Il est temps de corriger cela !
+Souvenez-vous que dans le [TP5](https://gitlabinfo.iutmontp.univ-montp2.fr/dev-objets/TP5), il y avait toute une hiérarchie de classes héritant de `Employe`, chacune ayant des spécificités. À l'époque, lorsque vous avez généré des builders pour construire des objets de ces classes, plusieurs duplications de code entre les différentes classes builder sont apparues. Il est temps de corriger cela !
 
 Dans le package `fr.umontpellier.iut.buildershierarchiques`, une solution partielle à ce problème de duplication de code vous est proposée. Une classe abstraite `AbstractEmployeBuilder` permet de factoriser l'ensemble des fonctions de construction communes (à tous les `Employe`). Cette classe est héritée par des builders spécifiques : `EmployeBuilder`, `TechnicienBuilder` et `FabricantBuilder`. En fonction du type concret d'employé, chacune de ces sous-classes ajoute les fonctions supplémentaires pour la construction de l'objet correspondant. Une particularité est que les classes builder sont gérées comme des classes internes statiques (par exemple `TechnicienBuilder` est une classe statique interne de la classe `Technicien`). Ceci pour favoriser l'encapsulation des différents sous-types de `Employe` (pour plus d'infos sur les classes internes voir [ce tutoriel Oracle](https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html)).
 
