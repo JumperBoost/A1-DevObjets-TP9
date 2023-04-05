@@ -5,7 +5,7 @@ public class Technicien extends Employe {
 
     public Technicien(TechnicienBuilder technicienBuilder) {
         super(technicienBuilder);
-        outilTechnique = technicienBuilder.outilTechnique;
+        outilTechnique = technicienBuilder.getOutilTechnique();
     }
 
     public void effectuerTacheTechnique() {
@@ -18,24 +18,4 @@ public class Technicien extends Employe {
     }
 
 
-    public static class TechnicienBuilder extends AbstractEmployeBuilder<TechnicienBuilder>{
-
-        private String outilTechnique;
-
-        public TechnicienBuilder setOutilTechnique(String outilTechnique){
-            this.outilTechnique = outilTechnique;
-            return this;
-        }
-
-        @Override
-        protected TechnicienBuilder self() {
-            return this;
-        }
-
-        @Override
-        public Technicien build() {
-            return new Technicien(this);
-        }
-
-    }
 }

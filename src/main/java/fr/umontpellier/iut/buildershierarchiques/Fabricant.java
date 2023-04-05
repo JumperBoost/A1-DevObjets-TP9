@@ -6,8 +6,8 @@ public class Fabricant extends Employe {
 
     public Fabricant(FabricantBuilder fabricantBuilder) {
         super(fabricantBuilder);
-        nbUnitesProduites = fabricantBuilder.nbUnitesProduites;
-        tauxCommissionUnite = fabricantBuilder.tauxCommissionUnite;
+        nbUnitesProduites = fabricantBuilder.getNbUnitesProduites();
+        tauxCommissionUnite = fabricantBuilder.getTauxCommissionUnite();
     }
 
     public void fabriquerProduit() {
@@ -22,27 +22,4 @@ public class Fabricant extends Employe {
                 '}';
     }
 
-    public static class FabricantBuilder extends AbstractEmployeBuilder<FabricantBuilder> {
-        private int nbUnitesProduites;
-        private double tauxCommissionUnite;
-
-        public FabricantBuilder setNbUnitesProduites(int nbUnitesProduites) {
-            this.nbUnitesProduites = nbUnitesProduites;
-            return this;
-        }
-
-        public FabricantBuilder setTauxCommissionUnite(double tauxCommissionUnite) {
-            this.tauxCommissionUnite = tauxCommissionUnite;
-            return this;
-        }
-        @Override
-        protected FabricantBuilder self() {
-            return this;
-        }
-
-        @Override
-        public Fabricant build() {
-            return new Fabricant(this);
-        }
-    }
 }

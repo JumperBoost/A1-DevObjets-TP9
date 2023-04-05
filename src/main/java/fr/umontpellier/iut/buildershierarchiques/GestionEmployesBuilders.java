@@ -3,7 +3,7 @@ package fr.umontpellier.iut.buildershierarchiques;
 public class GestionEmployesBuilders {
     public static void main(String[] args) {
         // instanciation d'un employe simple
-        Employe employe = new Employe.EmployeBuilder()
+        Employe employe = new EmployeBuilder()
                 .setBase(10)
                 .setNom("Toto")
                 .setNrINSEE("1982424")
@@ -12,7 +12,7 @@ public class GestionEmployesBuilders {
 
         System.out.println(employe);
 
-        Technicien technicien = new Technicien.TechnicienBuilder()
+        Technicien technicien = new TechnicienBuilder()
                 .setOutilTechnique("marteau")
                 .setNrINSEE("2992727397")
                 .setBase(12)
@@ -22,7 +22,7 @@ public class GestionEmployesBuilders {
         System.out.println(technicien);
         technicien.effectuerTacheTechnique();
 
-        Employe fabricant = new Fabricant.FabricantBuilder()
+        Employe fabricant = new FabricantBuilder()
                 .setBase(12)
                 .setNbUnitesProduites(5)
                 .setTauxCommissionUnite(36)
