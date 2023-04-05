@@ -30,7 +30,7 @@ public class GestionEmployesBuilders {
                 .build(); // instanciation en tant que fabricant (pas de numero INSEE et pas d'adresse pour lui)
 
         System.out.println(fabricant);
-        // par principe de substitution, ici il n'est pas possible d'invoquer la méthode fabriquerProduit() car
+        // par principe de substitution, ici, il n'est pas possible d'invoquer la méthode fabriquerProduit() car
         // l'objet `fabricant` a comme type apparent `Employe`
 
 
