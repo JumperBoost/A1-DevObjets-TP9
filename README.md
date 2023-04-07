@@ -126,7 +126,7 @@ L'attribut `String adresse` de la classe `Employe` correspond à sa ville de ré
    
    **Attention :** la collection `distances` est statique, donc n'ajoutez pas de constructeur à la classe `GestionDistances`...
    
-1. Déclarez une classe d'exception contrôlée `AdresseInconnueException` héritant de `Exception`. Le constructeur de cette classe aura comme argument un objet `String nomVille` et appellera le constructeur de la classe de base (`Exception`) avec le message : "_La ville " + `nomVille` + ” n'existe pas_”
+1. Déclarez une classe d'exception contrôlée `AdresseInconnueException` héritant de `Exception`. Le constructeur de cette classe aura comme argument un objet `String nomVille` et appellera le constructeur de la classe de base (`Exception`) avec le message : "_La ville " + `nomVille` + " n'existe pas_"
 
 1. La méthode `static int getDistance(String ville)` de `GestionDistances` devra retourner la distance associée à la ville passée en paramètre. Modifiez la signature de cette fonction annonçant qu'elle est **susceptible** de lever une exception `AdresseInconnueException`. Écrivez ensuite le corps de `static int getDistance(String ville)` en veillant à ce qu'elle **lève** une exception `AdresseInconnueException` si la ville n'est pas présente dans la collection `distances`.
 
