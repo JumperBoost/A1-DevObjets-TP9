@@ -116,15 +116,16 @@ L'attribut `double bonus` de la classe `Employe` permet de définir la quantité
 On souhaite maintenant pouvoir calculer les indemnités de transport pour chaque employé en fonction de la distance entre sa ville de résidence (une donnée de type `String`) et les locaux de l'entreprise.
 L'attribut `String adresse` de la classe `Employe` correspond à sa ville de résidence. Le _getter_ et le _setter_ permettent la gestion de cet attribut.
 
-1. La classe `GestionDistances` gère une collection statique faisant correspondre une distance (un entier) à une ville. Une ville ne peut être associée qu'à une unique distance, mais une même distance peut être associée à plusieurs villes. Initialisez cette collection (avec une méthode statique ou au chargement de la classe) avec les données suivantes :
-    * Montpellier &rightarrow; 0
-    * Sète &rightarrow; 36
-    * Sommières &rightarrow; 30
-    * Nîmes &rightarrow; 58
-    * Lunel &rightarrow; 30
-    * Béziers &rightarrow; 80
+La classe `GestionDistances` gère une collection statique faisant correspondre une distance (un entier) à une ville. Il s'agit d'une `Map`. Une ville ne peut être associée qu'à une unique distance, mais une même distance peut être associée à plusieurs villes. La `Map` est initialisée avec les données suivantes :
+
+* Montpellier &rightarrow; 0
+* Sète &rightarrow; 36
+* Sommières &rightarrow; 30
+* Nîmes &rightarrow; 58
+* Lunel &rightarrow; 30
+* Béziers &rightarrow; 80
    
-   **Attention :** la collection `distances` est statique, donc n'ajoutez pas de constructeur à la classe `GestionDistances`...
+**Attention :** la collection `distances` est statique, donc n'ajoutez pas de constructeur à la classe `GestionDistances`...
    
 1. Déclarez une classe d'exception contrôlée `AdresseInconnueException` héritant de `Exception`. Le constructeur de cette classe aura comme argument un objet `String nomVille` et appellera le constructeur de la classe de base (`Exception`) avec le message : "_La ville " + `nomVille` + ” n'existe pas_”
 
