@@ -134,29 +134,3 @@ La classe `GestionDistances` gère une collection statique faisant correspondre 
 1. Écrivez le corps de la méthode `double getIndemniteTransport()` de la classe `Employe`. Elle doit retourner l'indemnité qui est dûe à l'employé. La formule de calcul de cette indemnité est `distance  * base`. Si la ville n'existe pas, cette méthode devra traiter l'exception correspondante et retourner `0`.
 
 1. Écrivez des tests unitaires pour vérifier le bon fonctionnement de la méthode `double getIndemniteTransport()`.
-
-### Exercice 5 - builders hiérarchiques
-
-Pour cette partie, vous allez travailler **exclusivement** dans les classes du package `fr.umontpellier.iut.buildershierarchiques`, le code pour les exercices précédents (du package `fr.umontpellier.iut`) doit rester intact.
-
-Souvenez-vous que dans le [TP5](https://gitlabinfo.iutmontp.univ-montp2.fr/dev-objets/TP5), il y avait toute une hiérarchie de classes héritant de `Employe`, chacune ayant des spécificités. À l'époque, lorsque vous avez généré des builders pour construire des objets de ces classes, plusieurs duplications de code entre les différentes classes builder sont apparues. Il est temps de corriger cela !
-
-Dans le package `fr.umontpellier.iut.buildershierarchiques`, une solution partielle à ce problème de duplication de code vous est proposée. Une classe abstraite `AbstractEmployeBuilder` permet de factoriser l'ensemble des fonctions de construction communes (à tous les `Employe`). Cette classe est héritée par des builders spécifiques : `EmployeBuilder`, `TechnicienBuilder` et `FabricantBuilder`. En fonction du type concret d'employé, chacune de ces sous-classes ajoute les fonctions supplémentaires pour la construction de l'objet correspondant. Une particularité est que les classes builder sont gérées comme des classes internes statiques (par exemple `TechnicienBuilder` est une classe statique interne de la classe `Technicien`). Ceci pour favoriser l'encapsulation des différents sous-types de `Employe` (pour plus d'infos sur les classes internes voir [ce tutoriel Oracle](https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html)).
-
-Voici le diagramme de classes de cette solution partielle :
-
-# ![](ressources/hierarchieBuilders.svg)
-
-La classe `AbstractEmployeBuilder` est paramétrée par un type `T` dont le domaine de définition est borné par `AbstractEmployeBuilder<T>`. Elle possède deux méthodes abstraites importantes :
-* la méthode `build()` retourne par défaut l'`Employe` construit
-* la méthode `self()` retourne un objet de type `T` - dans les sous-classes de `AbstractEmployeBuilder`, `T` sera remplacé par le type effectif de builder
-
-Observez comment ces deux fonctions abstraites sont redéfinies dans les trois classes builders : `EmployeBuilder`, `TechnicienBuilder` et `FabricantBuilder`. Pour illustrer le fonctionnement, dans la classe principale `GestionEmployesBuilders` on instancie différents types d'employé, on les affiche et on leur demande d'exécuter les tâches spécifiques.
-
-Vous remarquerez que dans cette solution, il manque le cas des commerciaux. En vous inspirant de la solution existante pour les classes `Employe`, `Fabricant` et `Technicien`, modifiez les classes `Commercial`,`Vendeur` et `Representant` comme suit :
-* faites hériter `Commercial` de `Employe`
-* proposez les constructeurs et les méthodes appropriées dans les classes `Commercial`,`Vendeur` et `Representant` afin de permettre l'instanciation des différents commerciaux de manière analogue : avec des builders et en évitant la duplication de code.
-
-Analysez votre solution et discutez avec votre enseignant si nécessaire.
-
-Une explication approfondie concernant les builders hiérarchiques est donnée dans _Effective Java_ de J. Blosch, (3ème édition).
