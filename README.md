@@ -57,7 +57,7 @@ L'entreprise souhaite mieux organiser ses employés.
 
 1. Redéfinissez les méthodes `equals(Object o)` et `hashCode()` de la classe `Employe` afin de distinguer deux employés en fonction de leur numéro INSEE et leur nom (de type `String`). Dorénavant deux employés seront considérés comme des doublons s'ils ont le même numéro INSEE et le même nom.
 
-    **Remarque** : la collection `lePersonnel` peut contenir le même employé (deux objets `Employe` avec même numéro INSEE et même nom) plusieurs fois si cette personne occupe des postes différents. Donc ici, vous ne devez pas toucher au code de l'objet `lePersonnel` de la classe `Entreprise`.
+   **Remarque importante** : la collection `lePersonnel` peut contenir le même employé (même numéro INSEE et même nom) plusieurs fois si cette personne occupe des postes différents. Donc ici, vous ne devez pas toucher au code de l'objet `lePersonnel` de la classe `Entreprise`. Par ailleurs, constatez l'impact de la redéfinition `equals(Object o)` et `hashCode()` de `Employe` par rapport à la méthode `licencier(Employe e)` de la classe `Entreprise`.
 
 1. Écrivez le corps de la méthode `Collection<Employe> getEmployesDansDesordre()`. À partir de la collection `lePersonnel`, elle devra retourner une autre collection en enlevant tous les doublons, et ce, **sans invoquer explicitement un algorithme de recherche de doublons**.
 
