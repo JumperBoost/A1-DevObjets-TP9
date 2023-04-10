@@ -93,13 +93,13 @@ L'attribut `double bonus` de la classe `Employe` permet de définir la quantité
    Écrivez le corps de la méthode `void distribuerBonus()` qui effectue cette tâche **sans utiliser explicitement** un algorithme de tri et **sans modifier la classe `Employe`** Écrivez des tests unitaires pour vous assurer que chaque employé a bien reçu le bon bonus.
 
    **Remarques :**
-   * Pour déterminer l'ordre de distribution du bonus de deux employés embauchés à des dates identiques vous prendrez l'ordre d'apparition dans la collection `lePersonnel`.
+   * Pour déterminer l'ordre de distribution du bonus de deux employés embauchés à des dates identiques, vous prendrez l'ordre d'apparition dans la collection `lePersonnel`.
    * Un employé embauché à plusieurs postes (qui apparaît plusieurs fois dans `lePersonnel`), percevra plusieurs fois le bonus.
-   * Le bonus étant limité, il se peut que certains employés ne touchent rien (notamment les plus jeunes). De même, si vers la fin de la distribution, la quantité de bonus restante est inférieure à `3*ancienneté`, alors l'employé recevra seulement la quantité de bonus restante et tant pis pour son ancienneté !
+   * Le bonus étant limité, il se peut que certains employés ne touchent rien (notamment les plus jeunes). De même, si vers la fin de la distribution, la quantité de bonus restante est inférieure à `3.5*ancienneté`, alors l'employé recevra seulement la quantité de bonus restante et tant pis pour son ancienneté !
 
 1. Modifiez la méthode `toString()` de `Employe` afin qu'elle affiche également le bonus que l'employé a reçu.
 
-1. L'entreprise traverse une période de crise et décide de se séparer d'une partie de ses employés. Afin de fidéliser les anciens employés, ce qui a été décidé, c'est de licencier les employés ayant travaillé le moins longtemps dans l'entreprise. Sans modifier le code précédemment écrit, écrivez le code de la méthode `void remercier(int n)` de la classe `Entreprise` afin de licencier `n` employés ayant été embauchés le plus tard.
+1. L'entreprise traverse une période de crise et décide de se séparer d'une partie de ses employés. Afin de fidéliser les anciens employés, ce qui a été décidé, c'est de licencier les employés ayant travaillé le moins longtemps dans l'entreprise. Sans modifier le code précédemment écrit, écrivez le code de la méthode `void remercier(int n)` de la classe `Entreprise` pour licencier `n` employés ayant été embauchés le plus tard.
 
    **Remarques importantes :** Comme dans le cas de la question 2, si deux employés sont embauchés à des dates identiques, vous les remercierez dans l'ordre d'apparition dans la collection `lePersonnel`. Également, un employé peut être licencié d'un poste, mais pas d'un autre.
 
