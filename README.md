@@ -57,7 +57,13 @@ L'entreprise souhaite mieux organiser ses employés.
 
 1. Redéfinissez les méthodes `equals(Object o)` et `hashCode()` de la classe `Employe` afin de distinguer deux employés en fonction de leur numéro INSEE et leur nom (de type `String`). Dorénavant deux employés seront considérés comme des doublons s'ils ont le même numéro INSEE et le même nom.
 
-   **Remarque importante** : la collection `lePersonnel` peut contenir le même employé (même numéro INSEE et même nom) plusieurs fois si cette personne occupe des postes différents. Donc ici, vous ne devez pas toucher au code de l'objet `lePersonnel` de la classe `Entreprise`. Par ailleurs, constatez l'impact de la redéfinition `equals(Object o)` et `hashCode()` de `Employe` par rapport à la méthode `licencier(Employe e)` de la classe `Entreprise`.
+   **Remarque importante** : 
+   votre méthode `licencier(Employe e)` supprime la première occurrence de l'employé `e` *au sens de `equals`* (même numéro INSEE et même nom).
+   Or, la collection `lePersonnel` peut contenir le même employé (au sens de `equals`) plusieurs fois si cette personne occupe des postes différents.
+   Dans ce cas, votre méthode `licencier(Employe e)` va maintenant licencier l'employé de l'un de ses postes, mais pas de l'autre, sans qu'on puisse contrôler quel poste est visé.  
+   En conclusion, la méthode `licencier` n'est pas faite pour traiter le cas où un employé a été embauché à plusieurs postes. **Ne changez pas** la méthode `licencier` pour autant.
+   
+   <!-- Donc ici, vous ne devez pas toucher au code de l'attribut `lePersonnel` de la classe `Entreprise`. --> 
 
 1. Écrivez le corps de la méthode `Collection<Employe> getEmployesDansDesordre()`. À partir de la collection `lePersonnel`, elle devra retourner une autre collection en enlevant tous les doublons, et ce, **sans invoquer explicitement un algorithme de recherche de doublons**.
 
@@ -131,6 +137,6 @@ La classe `GestionDistances` gère une collection statique faisant correspondre 
 
 1. La méthode `static int getDistance(String ville)` de `GestionDistances` devra retourner la distance associée à la ville passée en paramètre. Modifiez la signature de cette fonction annonçant qu'elle est **susceptible** de lever une exception `AdresseInconnueException`. Écrivez ensuite le corps de `static int getDistance(String ville)` en veillant à ce qu'elle **lève** une exception `AdresseInconnueException` si la ville n'est pas présente dans la collection `distances`.
 
-1. Écrivez le corps de la méthode `double getIndemniteTransport()` de la classe `Employe`. Elle doit retourner l'indemnité qui est dûe à l'employé. La formule de calcul de cette indemnité est `distance  * base`. Si la ville n'existe pas, cette méthode devra traiter l'exception correspondante et retourner `0`.
+1. Écrivez le corps de la méthode `double getIndemniteTransport()` de la classe `Employe`. Elle doit retourner l'indemnité qui est due à l'employé. La formule de calcul de cette indemnité est `distance  * base`. Si la ville n'existe pas, cette méthode devra traiter l'exception correspondante et retourner `0`.
 
 1. Écrivez des tests unitaires pour vérifier le bon fonctionnement de la méthode `double getIndemniteTransport()`.
