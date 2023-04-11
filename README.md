@@ -88,7 +88,7 @@ L'attribut `double bonus` de la classe `Employe` permet de définir la quantité
 
    Écrivez plusieurs tests unitaires afin de comprendre le fonctionnement de la méthode `int getMoisAnciennete()` de la classe `Employe`. Vérifiez notamment que deux personnes étant embauchées à des dates différentes, mais ayant effectué le même nombre de mois **complets** aient la même ancienneté. Par exemple, un employé embauché depuis 10 mois et 14 jours aura la même ancienneté qu'un employé embauché depuis 10 mois. Prêtez attention à la variation des longueurs des mois dans une année !
 
-1. Le patron a décidé de donner la priorité aux anciens pour la distribution du bonus. Ainsi, le bonus sera distribué aux employés suivant leurs dates d'embauche : de la plus ancienne, à la plus récente. Le bonus qu'un employé va recevoir est égal à `3*ancienneté`.
+1. Le patron a décidé de donner la priorité aux anciens pour la distribution du bonus. Ainsi, le bonus sera distribué aux employés suivant leurs dates d'embauche : de la plus ancienne, à la plus récente. Chaque employé va voir son bonus incrémenté de `3.5*ancienneté`.
 
    Écrivez le corps de la méthode `void distribuerBonus()` qui effectue cette tâche **sans utiliser explicitement** un algorithme de tri et **sans modifier la classe `Employe`** Écrivez des tests unitaires pour vous assurer que chaque employé a bien reçu le bon bonus.
 
