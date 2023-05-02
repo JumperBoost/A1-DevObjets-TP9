@@ -8,7 +8,7 @@
 * [**Support de cours**](https://gitlabinfo.iutmontp.univ-montp2.fr/dev-objets/Ressources)
 * **Enseignants:**
   [Marin Bougeret](mailto:marin.bougeret@umontpellier.fr),
-  [Sophie Nabitz](mailto:sophie.nabitz@univ-avignon.fr),
+  [Romain Lebreton](mailto:romain.lebreton@umontpellier.fr),<!--[Sophie Nabitz](mailto:sophie.nabitz@univ-avignon.fr),-->
   [Cyrille Nadal](mailto:cyrille.nadal@umontpellier.fr),
   [Victor Poupet](mailto:victor.poupet@umontpellier.fr),
   [Gilles Trombettoni](mailto:gilles.trombettoni@umontpellier.fr),
