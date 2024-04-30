@@ -12,7 +12,7 @@ public class Employe {
 
     private double bonus; // pour exo3
 
-    private String adresse; // pour exo4
+    private String villeDeResidence; // pour exo4
 
     public Employe(String nrINSEE, String nom, double base) {
         this.nrINSEE = nrINSEE;
@@ -46,12 +46,12 @@ public class Employe {
         this.bonus = bonus;
     }
 
-    public String getAdresse() {
-        return adresse;
+    public String getVilleDeResidence() {
+        return villeDeResidence;
     }
 
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
+    public void setVilleDeResidence(String villeDeResidence) {
+        this.villeDeResidence = villeDeResidence;
     }
 
     public int getMoisAnciennete() {
