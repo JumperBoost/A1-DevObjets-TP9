@@ -35,7 +35,7 @@
 
 ## TP9 : _utilisation des collections Java_
 
-Date limite de rendu de votre code sur le dépôt GitLab : **dimanche 12 mai à 23h00**
+Date limite de rendu de votre code sur le dépôt GitLab : **dimanche 19 mai à 23h00**
 
 Reprenons la classe `Employe` du [TP5](https://gitlabinfo.iutmontp.univ-montp2.fr/dev-objets/TP5). Pour vous faciliter la tâche, nous l'avons directement écrite et simplifiée en enlevant les attributs inutiles pour ce TP. Un attribut `dateEmbauche` avec accesseur et modifieur ont été ajoutés à la classe `Employe`. Le but de ce TP est de proposer différentes organisations des employés dans l'entreprise en fonction des besoins du client. 
 
