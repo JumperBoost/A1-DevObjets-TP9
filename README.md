@@ -71,10 +71,14 @@ L'entreprise souhaite mieux organiser ses employés.
 
    **Remarque** : les deux fonctions  `getEmployesDansDesordre()` et `getEmployesOrdonnes()` doivent être totalement indépendantes et ne doivent pas s'appeler entre elles.
 
-4. Écrivez plusieurs tests unitaires vérifiant la fonctionnalité programmée. Voici le scénario à appliquer dans chaque test :
-    * créer une entreprise
-    * créer plusieurs employés (au moins 4) avec des noms différents et/ou numéros INSEE différents
-    * vérifiez avec des _assertions_ (`assertEquals(...)`, `assertNotEquals(...)`, `assertTrue(...)`, `assertFalse(...)`, `assertIterableEquals(...)` etc.) que la méthode `getEmployesOrdonnes()` fonctionne correctement. Vous vérifierez notamment que les collections retournées par `getEmployesOrdonnes()` et `getEmployesDansDesordre()` sont de mêmes tailles (et contiennent les mêmes employés). Vous trouverez la liste exhaustive des assertions en _Junit 5_ dans [l'API de la classe `Assertions`](https://junit.org/junit5/docs/5.4.0/api/org/junit/jupiter/api/Assertions.html).
+
+Pensez à écrire plusieurs tests unitaires vérifiant les fonctionnalités programmées.
+
+<!-- Voici le scénario à appliquer dans chaque test :
+   * créer une entreprise
+   * créer plusieurs employés (au moins 4) avec des noms différents et/ou numéros INSEE différents
+   * vérifiez avec des _assertions_ (`assertEquals(...)`, `assertNotEquals(...)`, `assertTrue(...)`, `assertFalse(...)`, `assertIterableEquals(...)` etc.) que la méthode `getEmployesOrdonnes()` fonctionne correctement. Vous vérifierez notamment que les collections retournées par `getEmployesOrdonnes()` et `getEmployesDansDesordre()` sont de mêmes tailles (et contiennent les mêmes employés). Vous trouverez la liste exhaustive des assertions en _Junit 5_ dans [l'API de la classe `Assertions`](https://junit.org/junit5/docs/5.4.0/api/org/junit/jupiter/api/Assertions.html).-->
+
 
 ### Exercice 3 - priorité aux anciens
 
@@ -128,5 +132,3 @@ La classe `GestionDistances` gère une collection statique faisant correspondre 
 2. La méthode `static int getDistance(String ville)` de `GestionDistances` devra retourner la distance associée à la ville passée en paramètre. Modifiez la signature de cette fonction annonçant qu'elle est **susceptible** de lever une exception `VilleInconnueException`. Écrivez ensuite le corps de `static int getDistance(String ville)` en veillant à ce qu'elle **lève** une exception `VilleInconnueException` si la ville n'est pas présente dans la collection `distances`.
 
 3. Écrivez le corps de la méthode `double getIndemniteTransport()` de la classe `Employe`. Elle doit retourner l'indemnité qui est due à l'employé. La formule de calcul de cette indemnité est `distance  * base`. Si la ville n'existe pas, cette méthode devra traiter l'exception correspondante et retourner `0`.
-
-4. Écrivez des tests unitaires pour vérifier le bon fonctionnement de la méthode `double getIndemniteTransport()`.
