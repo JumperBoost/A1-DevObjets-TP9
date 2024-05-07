@@ -2,6 +2,7 @@ package fr.umontpellier.iut;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.Objects;
 
 public class Employe {
     private String nrINSEE;
@@ -35,7 +36,7 @@ public class Employe {
                 ", nom='" + nom + '\'' +
                 ", base=" + base +
                 ", dateEmbauche=" + dateEmbauche +
-                "}\n";
+                "}";
     }
 
     public double getBonus() {
@@ -61,5 +62,18 @@ public class Employe {
 
     public double getIndemniteTransport() {
         throw new RuntimeException("Méthode à implémenter");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employe employe = (Employe) o;
+        return Objects.equals(nrINSEE, employe.nrINSEE) && Objects.equals(nom, employe.nom);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nrINSEE, nom);
     }
 }

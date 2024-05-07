@@ -1,18 +1,30 @@
 package fr.umontpellier.iut;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 
 public class Entreprise {
     private double bonusTotal;
     private Collection<Employe> lePersonnel;
 
+    public Entreprise() {
+        lePersonnel = new ArrayList<>();
+    }
+
     public void embaucher(Employe e, LocalDate dateEmbauche) {
-        throw new RuntimeException("Méthode à implémenter");
+        Employe employe = lePersonnel.stream().filter(f -> e.hashCode() == f.hashCode()
+                        && f.getDateEmbauche() == null).findFirst().orElse(null);
+        if(employe == null) {
+            e.setDateEmbauche(dateEmbauche);
+            lePersonnel.add(e);
+        } else employe.setDateEmbauche(dateEmbauche);
     }
 
     public void licencier(Employe e) {
-        throw new RuntimeException("Méthode à implémenter");
+        if(lePersonnel.contains(e))
+            e.setDateEmbauche(null);
     }
 
     public Collection<Employe> getEmployesOrdonnes() {
@@ -37,5 +49,13 @@ public class Entreprise {
 
     public void remercier(int n) {
         throw new RuntimeException("Méthode à implémenter");
+    }
+
+    @Override
+    public String toString() {
+        return "Entreprise{" +
+                "bonusTotal=" + bonusTotal +
+                ", lePersonnel=" + lePersonnel +
+                '}';
     }
 }
