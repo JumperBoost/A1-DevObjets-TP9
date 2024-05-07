@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 
-public class Employe {
+public class Employe implements Comparable<Employe> {
     private String nrINSEE;
     private String nom;
     private double base;
@@ -75,5 +75,12 @@ public class Employe {
     @Override
     public int hashCode() {
         return Objects.hash(nrINSEE, nom);
+    }
+
+
+    @Override
+    public int compareTo(Employe e) {
+        int i;
+        return (i = nom.compareTo(e.nom)) != 0 ? i : -nrINSEE.compareTo(e.nrINSEE);
     }
 }

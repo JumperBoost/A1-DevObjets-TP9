@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.TreeSet;
 
 public class Entreprise {
     private double bonusTotal;
@@ -28,11 +29,11 @@ public class Entreprise {
     }
 
     public Collection<Employe> getEmployesOrdonnes() {
-        throw new RuntimeException("Méthode à implémenter");
+        return new TreeSet<>(getEmployesDansDesordre());
     }
 
     public Collection<Employe> getEmployesDansDesordre() {
-        throw new RuntimeException("Méthode à implémenter");
+       return new HashSet<>(lePersonnel);
     }
 
     public double getBonusTotal() {
