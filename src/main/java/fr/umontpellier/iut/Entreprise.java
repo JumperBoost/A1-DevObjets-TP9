@@ -24,7 +24,7 @@ public class Entreprise {
     }
 
     public Collection<Employe> getEmployesOrdonnes() {
-        return new TreeSet<>(lePersonnel);
+        return new TreeSet<>(getEmployesDansDesordre());
     }
 
     public Collection<Employe> getEmployesDansDesordre() {

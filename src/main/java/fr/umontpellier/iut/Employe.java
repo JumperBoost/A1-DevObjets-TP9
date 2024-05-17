@@ -86,6 +86,6 @@ public class Employe implements Comparable<Employe> {
     @Override
     public int compareTo(Employe e) {
         int i;
-        return (i = nom.compareTo(e.nom)) != 0 ? i : -nrINSEE.compareTo(e.nrINSEE);
+        return (i = nom.compareTo(e.nom)) != 0 ? i : e.nrINSEE.compareTo(nrINSEE);
     }
 }
