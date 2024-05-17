@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Entreprise {
     private double bonusTotal;
-    private Collection<Employe> lePersonnel;
+    private final Collection<Employe> lePersonnel;
 
     public Entreprise() {
         lePersonnel = new ArrayList<>();
@@ -24,7 +24,7 @@ public class Entreprise {
     }
 
     public Collection<Employe> getEmployesOrdonnes() {
-        return new TreeSet<>(getEmployesDansDesordre());
+        return new TreeSet<>(lePersonnel);
     }
 
     public Collection<Employe> getEmployesDansDesordre() {
