@@ -204,9 +204,9 @@ public class EntrepriseTest extends BaseTest {
         inc.distribuerBonus();
         System.out.println(inc);
 
-        assertEquals(0, e1.getBonus());
+        assertEquals(1, e1.getBonus());
         assertEquals(3.5, e2.getBonus());
-        assertEquals(4.5, e3.getBonus());
+        assertEquals(3.5, e3.getBonus());
         assertEquals(0, inc.getBonusTotal());
     }
 
