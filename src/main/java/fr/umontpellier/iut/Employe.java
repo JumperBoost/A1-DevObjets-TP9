@@ -5,9 +5,9 @@ import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 
 public class Employe implements Comparable<Employe> {
-    private final String nrINSEE;
-    private final String nom;
-    private final double base;
+    private String nrINSEE;
+    private String nom;
+    private double base;
 
     private LocalDate dateEmbauche;
 

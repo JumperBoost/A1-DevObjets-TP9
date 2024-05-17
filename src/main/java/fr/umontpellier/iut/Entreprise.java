@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Entreprise {
     private double bonusTotal;
-    private final Collection<Employe> lePersonnel;
+    private Collection<Employe> lePersonnel;
 
     public Entreprise() {
         lePersonnel = new ArrayList<>();
