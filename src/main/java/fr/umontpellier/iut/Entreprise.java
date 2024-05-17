@@ -40,7 +40,11 @@ public class Entreprise {
     }
 
     public void distribuerBonus() {
-        PriorityQueue<Employe> employes_trie = new PriorityQueue<>(Comparator.comparing(Employe::getDateEmbauche));
+        ArrayList<Employe> em = new ArrayList<>(lePersonnel);
+        PriorityQueue<Employe> employes_trie = new PriorityQueue<>((Employe e1, Employe e2) ->
+                e1.getDateEmbauche().equals(e2.getDateEmbauche()) ?
+                        em.indexOf(e1)-em.indexOf(e2) : e1.getDateEmbauche().compareTo(e2.getDateEmbauche())
+        );
 
         double bonus;
         while (bonusTotal > 0) {
@@ -57,7 +61,11 @@ public class Entreprise {
     }
 
     public void remercier(int n) {
-        PriorityQueue<Employe> employes_trie = new PriorityQueue<>(Comparator.comparing(Employe::getDateEmbauche).reversed());
+        ArrayList<Employe> em = new ArrayList<>(lePersonnel);
+        PriorityQueue<Employe> employes_trie = new PriorityQueue<>((Employe e1, Employe e2) ->
+                e1.getDateEmbauche().equals(e2.getDateEmbauche()) ?
+                        em.indexOf(e1)-em.indexOf(e2) : e2.getDateEmbauche().compareTo(e1.getDateEmbauche())
+        );
         employes_trie.addAll(lePersonnel);
 
         Employe e;
