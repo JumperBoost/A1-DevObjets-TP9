@@ -5,9 +5,9 @@ import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 
 public class Employe implements Comparable<Employe> {
-    private String nrINSEE;
-    private String nom;
-    private double base;
+    private final String nrINSEE;
+    private final String nom;
+    private final double base;
 
     private LocalDate dateEmbauche;
 
@@ -36,6 +36,7 @@ public class Employe implements Comparable<Employe> {
                 ", nom='" + nom + '\'' +
                 ", base=" + base +
                 ", dateEmbauche=" + dateEmbauche +
+                ", bonus=" + bonus +
                 "}";
     }
 
@@ -61,7 +62,11 @@ public class Employe implements Comparable<Employe> {
     }
 
     public double getIndemniteTransport() {
-        throw new RuntimeException("Méthode à implémenter");
+        try {
+            return GestionDistances.getDistance(villeDeResidence) * base;
+        } catch (VilleInconnueException exception) {
+            return 0;
+        }
     }
 
     @Override

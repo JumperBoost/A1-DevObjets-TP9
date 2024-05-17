@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GestionDistances {
-    private static Map<String, Integer> distances;
+    private static final Map<String, Integer> distances;
 
     // Initialisation de la Map au chargement de la classe
     static {
@@ -17,7 +17,9 @@ public class GestionDistances {
         distances.put("Sommières", 30);
     }
 
-    public static int getDistance(String ville) {
-        throw new RuntimeException("Méthode à implémenter");
+    public static int getDistance(String ville) throws VilleInconnueException {
+        if(!distances.containsKey(ville))
+            throw new VilleInconnueException(ville);
+        return distances.get(ville);
     }
 }
