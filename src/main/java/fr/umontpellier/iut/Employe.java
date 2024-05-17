@@ -57,6 +57,9 @@ public class Employe implements Comparable<Employe> {
     }
 
     public int getMoisAnciennete() {
+        if(dateEmbauche == null)
+            return 0;
+
         long intervalleEnMois = ChronoUnit.MONTHS.between(dateEmbauche, LocalDate.now());
         return (int) intervalleEnMois;
     }
@@ -73,18 +76,13 @@ public class Employe implements Comparable<Employe> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Employe employe = (Employe) o;
-
-        if (!Objects.equals(nrINSEE, employe.nrINSEE)) return false;
-        return Objects.equals(nom, employe.nom);
+        return Objects.equals(nrINSEE, employe.nrINSEE) && Objects.equals(nom, employe.nom);
     }
 
     @Override
     public int hashCode() {
-        int result = nrINSEE != null ? nrINSEE.hashCode() : 0;
-        result = 31 * result + (nom != null ? nom.hashCode() : 0);
-        return result;
+        return Objects.hash(nrINSEE, nom);
     }
 
 
