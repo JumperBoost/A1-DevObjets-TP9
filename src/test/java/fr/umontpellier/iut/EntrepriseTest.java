@@ -200,12 +200,13 @@ public class EntrepriseTest extends BaseTest {
         inc.embaucher(e1, LocalDate.now().minusMonths(1));
         inc.embaucher(e3, LocalDate.now().minusMonths(1));
 
+        System.out.println(inc);
         inc.distribuerBonus();
         System.out.println(inc);
 
-        assertEquals(1, e1.getBonus());
+        assertEquals(0, e1.getBonus());
         assertEquals(3.5, e2.getBonus());
-        assertEquals(3.5, e3.getBonus());
+        assertEquals(4.5, e3.getBonus());
         assertEquals(0, inc.getBonusTotal());
     }
 
