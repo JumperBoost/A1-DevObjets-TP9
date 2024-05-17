@@ -73,13 +73,18 @@ public class Employe implements Comparable<Employe> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Employe employe = (Employe) o;
-        return Objects.equals(nrINSEE, employe.nrINSEE) && Objects.equals(nom, employe.nom);
+
+        if (!Objects.equals(nrINSEE, employe.nrINSEE)) return false;
+        return Objects.equals(nom, employe.nom);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nrINSEE, nom);
+        int result = nrINSEE != null ? nrINSEE.hashCode() : 0;
+        result = 31 * result + (nom != null ? nom.hashCode() : 0);
+        return result;
     }
 
 
