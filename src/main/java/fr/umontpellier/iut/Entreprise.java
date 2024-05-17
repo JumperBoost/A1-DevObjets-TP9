@@ -42,14 +42,16 @@ public class Entreprise {
     public void distribuerBonus() {
         PriorityQueue<Employe> employes_trie = new PriorityQueue<>(Comparator.comparing(Employe::getDateEmbauche));
 
-        Employe e;
         double bonus;
-        while ((bonusTotal > 0)) {
+        while (bonusTotal > 0) {
             employes_trie.addAll(lePersonnel);
-            while ((e=employes_trie.poll())!=null && (bonusTotal > 0)) {
-                bonus = Math.min(3.5 * e.getMoisAnciennete(), bonusTotal);
-                e.setBonus(e.getBonus() + bonus);
-                bonusTotal -= bonus;
+            while (!employes_trie.isEmpty() && bonusTotal > 0) {
+                Employe employe = employes_trie.poll();
+                if(employe.getDateEmbauche() != null) {
+                    bonus = Math.min(3.5 * employe.getMoisAnciennete(), bonusTotal);
+                    employe.setBonus(employe.getBonus() + bonus);
+                    bonusTotal -= bonus;
+                }
             }
         }
     }

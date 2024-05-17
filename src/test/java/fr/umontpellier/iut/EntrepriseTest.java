@@ -1,15 +1,17 @@
 package fr.umontpellier.iut;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static fr.umontpellier.iut.EmployeTest.*;
 
 public class EntrepriseTest extends BaseTest {
+
     private Entreprise inc;
     private ArrayList<Employe> employes;
 
@@ -33,7 +35,7 @@ public class EntrepriseTest extends BaseTest {
         }
     }
 
-    
+    // @Disabled
     @Test
     void test_embaucher() {
         Employe e = creerEmployeTest("0");
@@ -44,7 +46,7 @@ public class EntrepriseTest extends BaseTest {
         assertEquals(LocalDate.now(), getAttribute(e, "dateEmbauche"));
     }
 
-    
+    // @Disabled
     @Test
     void test_embaucher_null() {
         inc.embaucher(null, LocalDate.now());
@@ -53,7 +55,7 @@ public class EntrepriseTest extends BaseTest {
         assertEquals(3, employes.size());
     }
 
-    
+    // @Disabled
     @Test
     void test_embaucher_meme_employe() {
         Employe e = employes.get(0);
@@ -64,7 +66,7 @@ public class EntrepriseTest extends BaseTest {
         assertEquals(LocalDate.now(), getAttribute(e, "dateEmbauche"));
     }
 
-    
+    // @Disabled
     @Test
     void test_licencier() {
         Employe e = employes.get(0);
@@ -75,7 +77,35 @@ public class EntrepriseTest extends BaseTest {
         assertNull(getAttribute(e, "dateEmbauche"));
     }
 
-    
+    @Disabled
+    @Test
+    void test_licencierV2() {
+        Employe e = employes.get(0);
+        Employe e_bis = EmployeTest.creerEmployeTest("1");
+        employes.add(e_bis);
+
+        inc.licencier(e_bis);
+
+        assertTrue(containsReferences(employes, e, e_bis));
+        assertNull(getAttribute(e_bis, "dateEmbauche"));
+        assertNotNull(getAttribute(e, "dateEmbauche"));
+    }
+
+    // @Disabled
+    @Test
+    void test_licencier_meme_employe() {
+        Employe e = employes.get(0);
+        inc.embaucher(e, LocalDate.now());
+        inc.licencier(e);
+
+        assertTrue(containsReference(employes, e));
+        assertNotSame(e, employes.get(0));
+        assertSame(e, employes.get(2));
+        assertEquals(3, employes.size());
+        assertNull(getAttribute(e, "dateEmbauche"));
+    }
+
+    // @Disabled
     @Test
     void test_getEmployesDansDesordre_no_doublon_ref_diff() {
         Employe e = new Employe("1", "test1", 0);
@@ -90,7 +120,7 @@ public class EntrepriseTest extends BaseTest {
         assertEquals(3, res.size());
     }
 
-    
+    // @Disabled
     @Test
     void test_getEmployesDansDesordre_no_doublon_meme_ref() {
         Employe e = employes.get(0);
@@ -105,7 +135,7 @@ public class EntrepriseTest extends BaseTest {
         assertEquals(3, res.size());
     }
 
-    
+    // @Disabled
     @Test
     void test_getEmployesOrdonnees() {
         Employe e1 = employes.get(0);
@@ -118,6 +148,7 @@ public class EntrepriseTest extends BaseTest {
 
         Collection<Employe> res = inc.getEmployesOrdonnes();
         Collection<Employe> expected = new TreeSet<>(employes);
+        expected.addAll(employes);
 
         assertTrue(containsReferences(res, e1, e2, e3, e5, e6));
         assertFalse(containsReferences(res, e4));
@@ -127,7 +158,7 @@ public class EntrepriseTest extends BaseTest {
         assertEquals(5, res.size());
     }
 
-    
+    // @Disabled
     @Test
     void test_getEmployesOrdre_et_Desordre() {
         Employe e4 = creerEmployeTest("1");
@@ -140,10 +171,12 @@ public class EntrepriseTest extends BaseTest {
 
         assertEquals(5, resDesordre.size());
         assertEquals(resOrdre.size(), resDesordre.size());
-        assertTrue(containsExactReferences(resOrdre, resOrdre));
+        assertTrue(containsReferences(resDesordre, resOrdre));
     }
 
-    
+
+
+    // @Disabled
     @Test
     void test_distribuerBonus_montant() {
         inc.setBonusTotal(60);
@@ -167,7 +200,7 @@ public class EntrepriseTest extends BaseTest {
         assertEquals(0, inc.getBonusTotal());
     }
 
-    
+    // @Disabled
     @Test
     void test_distribuerBonus_ordre_et_bonus_restant_inferieur_bonus_du() {
         inc.setBonusTotal(80);
@@ -187,7 +220,9 @@ public class EntrepriseTest extends BaseTest {
         assertEquals(0, inc.getBonusTotal());
     }
 
-    
+
+    // VERSION BIDOUILLE
+    // @Disabled
     @Test
     void test_distribuerBonus_ordre_apparition() {
         inc.setBonusTotal(8);
@@ -200,9 +235,7 @@ public class EntrepriseTest extends BaseTest {
         inc.embaucher(e1, LocalDate.now().minusMonths(1));
         inc.embaucher(e3, LocalDate.now().minusMonths(1));
 
-        System.out.println(inc);
         inc.distribuerBonus();
-        System.out.println(inc);
 
         assertEquals(1, e1.getBonus());
         assertEquals(3.5, e2.getBonus());
@@ -210,7 +243,7 @@ public class EntrepriseTest extends BaseTest {
         assertEquals(0, inc.getBonusTotal());
     }
 
-    
+    // @Disabled
     @Test
     void test_distribuerBonus_critere_comparaison() {
         inc.setBonusTotal(5);
@@ -230,7 +263,7 @@ public class EntrepriseTest extends BaseTest {
         assertEquals(0, inc.getBonusTotal());
     }
 
-    
+    // @Disabled
     @Test
     void test_remercier_simple() {
         employes.clear();
@@ -251,7 +284,7 @@ public class EntrepriseTest extends BaseTest {
         assertFalse(containsReference(employes, fifi));
     }
 
-    
+    // @Disabled
     @Test
     void test_remercier_critere_comparaison() {
         employes.clear();
@@ -269,7 +302,8 @@ public class EntrepriseTest extends BaseTest {
         assertFalse(containsReferences(employes, e1, e3));
     }
 
-    
+    // VERSION BIDOUILLE
+    // @Disabled
     @Test
     void test_remercier_ordre_apparition() {
         employes.clear();
@@ -288,7 +322,7 @@ public class EntrepriseTest extends BaseTest {
         assertFalse(containsReferences(employes, e2));
     }
 
-    
+    // @Disabled
     @Test
     void test_remercier_premiere_occurence_doublon_ref_diff() {
         employes.clear();
@@ -304,7 +338,7 @@ public class EntrepriseTest extends BaseTest {
         assertFalse(containsReferences(employes, e1));
     }
 
-    
+    // @Disabled
     @Test
     void test_remercier_employes_vide() {
         employes.clear();
@@ -312,7 +346,7 @@ public class EntrepriseTest extends BaseTest {
         assertTrue(employes.isEmpty());
     }
 
-    
+    // @Disabled
     @Test
     void test_remercier_employes_inferieur_a_n() {
         employes.clear();

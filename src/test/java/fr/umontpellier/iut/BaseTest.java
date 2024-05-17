@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class BaseTest {
+
     @SuppressWarnings("unchecked")
     public static <T> T getAttribute(Object object, String name) {
         Class<?> c = object.getClass();
@@ -56,9 +57,16 @@ public class BaseTest {
         return true;
     }
 
-    public static <T> boolean containsExactReferences(Collection<T> collection1, Collection<T> collection2) {
-        return collection1.containsAll(collection2) && collection2.containsAll(collection1);
+    public static <T> boolean containsReferences(Collection<T> collection, Collection<T> collection2) {
+        for (T element : collection2) {
+            if (collection.stream().noneMatch(e -> e == element)) {
+                return false;
+            }
+        }
+        return true;
     }
+
+
 
     @SafeVarargs
     public static <T> boolean containsExactlyReferencesInOrder(List<T> list, T... elements) {
@@ -73,7 +81,5 @@ public class BaseTest {
         return true;
     }
 
-    public static Employe creerEmployeTest(String nb) {
-        return new Employe(nb, "test"+nb, 0);
-    }
+
 }
