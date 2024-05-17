@@ -40,32 +40,22 @@ public class Entreprise {
     }
 
     public void distribuerBonus() {
-        ArrayList<Employe> em = new ArrayList<>(lePersonnel);
-        PriorityQueue<Employe> employes_trie = new PriorityQueue<>((Employe e1, Employe e2) ->
-                e1.getDateEmbauche().equals(e2.getDateEmbauche()) ?
-                        em.indexOf(e1)-em.indexOf(e2) : e1.getDateEmbauche().compareTo(e2.getDateEmbauche())
-        );
+        PriorityQueue<Employe> employes_trie = new PriorityQueue<>(Comparator.comparing(Employe::getDateEmbauche));
 
+        Employe e;
         double bonus;
-        while (bonusTotal > 0) {
+        while ((bonusTotal > 0)) {
             employes_trie.addAll(lePersonnel);
-            while (!employes_trie.isEmpty() && bonusTotal > 0) {
-                Employe employe = employes_trie.poll();
-                if(employe.getDateEmbauche() != null) {
-                    bonus = Math.min(3.5 * employe.getMoisAnciennete(), bonusTotal);
-                    employe.setBonus(employe.getBonus() + bonus);
-                    bonusTotal -= bonus;
-                }
+            while ((e=employes_trie.poll())!=null && (bonusTotal > 0)) {
+                bonus = Math.min(3.5 * e.getMoisAnciennete(), bonusTotal);
+                e.setBonus(e.getBonus() + bonus);
+                bonusTotal -= bonus;
             }
         }
     }
 
     public void remercier(int n) {
-        ArrayList<Employe> em = new ArrayList<>(lePersonnel);
-        PriorityQueue<Employe> employes_trie = new PriorityQueue<>((Employe e1, Employe e2) ->
-                e1.getDateEmbauche().equals(e2.getDateEmbauche()) ?
-                        em.indexOf(e1)-em.indexOf(e2) : e2.getDateEmbauche().compareTo(e1.getDateEmbauche())
-        );
+        PriorityQueue<Employe> employes_trie = new PriorityQueue<>(Comparator.comparing(Employe::getDateEmbauche).reversed());
         employes_trie.addAll(lePersonnel);
 
         Employe e;
