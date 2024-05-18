@@ -2,27 +2,18 @@ package fr.umontpellier.iut;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.Comparator;
 import java.util.Objects;
 
-public class Employe {
-    private String nrINSEE;
-    private String nom;
-    private double base;
+public class Employe implements Comparable<Employe> {
+    private final String nrINSEE;
+    private final String nom;
+    private final double base;
 
     private LocalDate dateEmbauche;
 
     private double bonus; // pour exo3
 
     private String villeDeResidence; // pour exo4
-
-    private final static Comparator<Employe> comparatorNomInsee = (e1, e2) -> {
-        if (e1.nom.equals(e2.nom)) {
-            return e2.nrINSEE.compareTo(e1.nrINSEE);
-        } else {
-            return e1.nom.compareTo(e2.nom);
-        }
-    };
 
     public Employe(String nrINSEE, String nom, double base) {
         this.nrINSEE = nrINSEE;
@@ -46,7 +37,7 @@ public class Employe {
                 ", base=" + base +
                 ", dateEmbauche=" + dateEmbauche +
                 ", bonus=" + bonus +
-                "}\n";
+                "}";
     }
 
     public double getBonus() {
@@ -66,20 +57,17 @@ public class Employe {
     }
 
     public int getMoisAnciennete() {
-        long intervalleEnMois;
-        if (dateEmbauche==null) {
-            intervalleEnMois = 0;
-        } else {
-            intervalleEnMois = ChronoUnit.MONTHS.between(dateEmbauche, LocalDate.now());
-        }
+        if(dateEmbauche == null)
+            return 0;
+
+        long intervalleEnMois = ChronoUnit.MONTHS.between(dateEmbauche, LocalDate.now());
         return (int) intervalleEnMois;
     }
 
     public double getIndemniteTransport() {
         try {
-            return GestionDistances.getDistance(getVilleDeResidence()) * base;
-        } catch (VilleInconnueException e) {
-            System.out.println(e.getMessage());
+            return GestionDistances.getDistance(villeDeResidence) * base;
+        } catch (VilleInconnueException exception) {
             return 0;
         }
     }
@@ -88,21 +76,19 @@ public class Employe {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Employe employe = (Employe) o;
-
-        if (!Objects.equals(nrINSEE, employe.nrINSEE)) return false;
-        return Objects.equals(nom, employe.nom);
+        return Objects.equals(nrINSEE, employe.nrINSEE) && Objects.equals(nom, employe.nom);
     }
 
     @Override
     public int hashCode() {
-        int result = nrINSEE != null ? nrINSEE.hashCode() : 0;
-        result = 31 * result + (nom != null ? nom.hashCode() : 0);
-        return result;
+        return Objects.hash(nrINSEE, nom);
     }
 
-    public static Comparator<Employe> getComparatorNomInsee() {
-        return comparatorNomInsee;
+
+    @Override
+    public int compareTo(Employe e) {
+        int i;
+        return (i = nom.compareTo(e.nom)) != 0 ? i : e.nrINSEE.compareTo(nrINSEE);
     }
 }

@@ -5,14 +5,14 @@ import java.util.*;
 
 public class Entreprise {
     private double bonusTotal;
-    private Collection<Employe> lePersonnel;
+    private final Collection<Employe> lePersonnel;
 
     public Entreprise() {
         lePersonnel = new ArrayList<>();
     }
 
     public void embaucher(Employe e, LocalDate dateEmbauche) {
-        if (e!=null) {
+        if(e != null) {
             e.setDateEmbauche(dateEmbauche);
             lePersonnel.add(e);
         }
@@ -23,15 +23,12 @@ public class Entreprise {
         lePersonnel.remove(e);
     }
 
-
     public Collection<Employe> getEmployesOrdonnes() {
-        Set<Employe> employes = new TreeSet<>(Employe.getComparatorNomInsee());
-        employes.addAll(lePersonnel);
-        return employes;
+        return new TreeSet<>(getEmployesDansDesordre());
     }
 
     public Collection<Employe> getEmployesDansDesordre() {
-        return new HashSet<>(lePersonnel);
+       return new HashSet<>(lePersonnel);
     }
 
     public double getBonusTotal() {
@@ -43,67 +40,37 @@ public class Entreprise {
     }
 
     public void distribuerBonus() {
-        // Version Bidouille
-        ArrayList<Employe> em = new ArrayList<>(lePersonnel);
-        PriorityQueue<Employe> employes = new PriorityQueue<>((Employe e1, Employe e2) ->
-                e1.getDateEmbauche().equals(e2.getDateEmbauche()) ?
-                         em.indexOf(e1)-em.indexOf(e2) : e1.getDateEmbauche().compareTo(e2.getDateEmbauche())
-        );
+        PriorityQueue<Employe> employes_trie = new PriorityQueue<>(Comparator.comparing(Employe::getDateEmbauche));
 
-        Employe e;
         double bonus;
-        while ((bonusTotal > 0)) {
-            employes.addAll(em);
-            while ((e=employes.poll())!=null && (bonusTotal > 0)) {
-                bonus = Math.min(3.5 * e.getMoisAnciennete(), bonusTotal);
-                e.setBonus(e.getBonus() + bonus);
-                bonusTotal -= bonus;
+        while (bonusTotal > 0) {
+            employes_trie.addAll(lePersonnel);
+            while (!employes_trie.isEmpty() && bonusTotal > 0) {
+                Employe employe = employes_trie.poll();
+                if(employe.getDateEmbauche() != null) {
+                    bonus = Math.min(3.5 * employe.getMoisAnciennete(), bonusTotal);
+                    employe.setBonus(employe.getBonus() + bonus);
+                    bonusTotal -= bonus;
+                }
             }
         }
-
-        // Version Classique
-//        PriorityQueue<Employe> employes = new PriorityQueue<>(Comparator.comparing(Employe::getDateEmbauche));
-//
-//        Employe e;
-//        double bonus;
-//
-//        while ((bonusTotal > 0)) {
-//            employes.addAll(lePersonnel);
-//            while ((e=employes.poll())!=null && (bonusTotal > 0)) {
-//                bonus = Math.min(3.5 * e.getMoisAnciennete(), bonusTotal);
-//                e.setBonus(e.getBonus() + bonus);
-//                bonusTotal -= bonus;
-//            }
-//        }
     }
 
     public void remercier(int n) {
-        // Version bidouille
-        ArrayList<Employe> em = new ArrayList<>(lePersonnel);
-        PriorityQueue<Employe> employes = new PriorityQueue<>((Employe e1, Employe e2) ->
-                e1.getDateEmbauche().equals(e2.getDateEmbauche()) ?
-                        em.indexOf(e1)-em.indexOf(e2) : e2.getDateEmbauche().compareTo(e1.getDateEmbauche())
-        );
-        employes.addAll(em);
+        PriorityQueue<Employe> employes_trie = new PriorityQueue<>(Comparator.comparing(Employe::getDateEmbauche).reversed());
+        employes_trie.addAll(lePersonnel);
 
         Employe e;
-        while((e=employes.poll())!=null && n-- > 0) {
+        int i = 0;
+        while (i++ < n && (e = employes_trie.poll()) != null)
             licencier(e);
-        }
-
-        // Version Classique
-//        PriorityQueue<Employe> employes = new PriorityQueue<>((Employe e1, Employe e2) -> e2.getDateEmbauche().compareTo(e1.getDateEmbauche()));
-//        employes.addAll(lePersonnel);
-//
-//        Employe e;
-//        while((e=employes.poll())!=null && n-- > 0) {
-//            licencier(e);
-//        }
     }
 
     @Override
     public String toString() {
-        return lePersonnel.toString();
+        return "Entreprise{" +
+                "bonusTotal=" + bonusTotal +
+                ", lePersonnel=" + lePersonnel +
+                '}';
     }
-
 }
