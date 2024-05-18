@@ -37,7 +37,7 @@ public class Employe implements Comparable<Employe> {
                 ", base=" + base +
                 ", dateEmbauche=" + dateEmbauche +
                 ", bonus=" + bonus +
-                "}\n";
+                "}";
     }
 
     public double getBonus() {

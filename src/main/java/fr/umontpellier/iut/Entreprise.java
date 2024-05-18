@@ -24,7 +24,7 @@ public class Entreprise {
     }
 
     public Collection<Employe> getEmployesOrdonnes() {
-        Set<Employe> employes = new TreeSet<>(lePersonnel);
+        TreeSet<Employe> employes = new TreeSet<>(lePersonnel);
         employes.addAll(lePersonnel);
         return employes;
     }
