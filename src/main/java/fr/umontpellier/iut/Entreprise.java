@@ -76,6 +76,9 @@ public class Entreprise {
 
     @Override
     public String toString() {
-        return lePersonnel.toString();
+        return "Entreprise{" +
+                "bonusTotal=" + bonusTotal +
+                ", lePersonnel=" + lePersonnel +
+                '}';
     }
 }
