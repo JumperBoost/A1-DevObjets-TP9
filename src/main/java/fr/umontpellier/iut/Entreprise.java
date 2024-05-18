@@ -24,9 +24,7 @@ public class Entreprise {
     }
 
     public Collection<Employe> getEmployesOrdonnes() {
-        TreeSet<Employe> employes = new TreeSet<>(lePersonnel);
-        employes.addAll(lePersonnel);
-        return employes;
+        return new TreeSet<>(getEmployesDansDesordre());
     }
 
     public Collection<Employe> getEmployesDansDesordre() {
@@ -78,9 +76,6 @@ public class Entreprise {
 
     @Override
     public String toString() {
-        return "Entreprise{" +
-                "bonusTotal=" + bonusTotal +
-                ", lePersonnel=" + lePersonnel +
-                '}';
+        return lePersonnel.toString();
     }
 }
