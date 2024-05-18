@@ -63,21 +63,21 @@ public class EmployeTest extends BaseTest {
     @Test
     void test_comparator_nom_insee_meme_nom_et_insee() {
         Employe e2 = new Employe("", "test", 1);
-        assertEquals(0, Employe.getComparatorNomInsee().compare(e, e2));
+        assertEquals(e, e2);
     }
 
     // @Disabled
     @Test
     void test_comparator_nom_e1_sup_e2_meme_insee() {
         Employe e2 = new Employe("1", "aest", 1);
-        assertTrue(Employe.getComparatorNomInsee().compare(e, e2) > 0);
+        assertTrue(e.compareTo(e2) > 0);
     }
 
     // @Disabled
     @Test
     void test_comparator_meme_nom_e1_insee_inf_e2() {
         Employe e2 = new Employe("2", "test", 1);
-        assertTrue(Employe.getComparatorNomInsee().compare(e, e2) > 0);
+        assertTrue(e.compareTo(e2) > 0);
     }
 
     // @Disabled
@@ -187,7 +187,7 @@ public class EmployeTest extends BaseTest {
         } catch (VilleInconnueException ex) {
             msg = ex.getMessage();
         }
-        
+
         assertDoesNotThrow(e1::getIndemniteTransport);
         assertEquals(msg, "La ville " + e1.getVilleDeResidence() + " n'existe pas");
         assertEquals(0, res);

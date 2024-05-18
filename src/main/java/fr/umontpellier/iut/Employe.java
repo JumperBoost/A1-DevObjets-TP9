@@ -2,10 +2,9 @@ package fr.umontpellier.iut;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.Comparator;
 import java.util.Objects;
 
-public class Employe {
+public class Employe implements Comparable<Employe> {
     private final String nrINSEE;
     private final String nom;
     private final double base;
@@ -21,14 +20,6 @@ public class Employe {
         this.nom = nom;
         this.base = base;
     }
-
-    private final static Comparator<Employe> comparatorNomInsee = (e1, e2) -> {
-        if (e1.nom.equals(e2.nom)) {
-            return e2.nrINSEE.compareTo(e1.nrINSEE);
-        } else {
-            return e1.nom.compareTo(e2.nom);
-        }
-    };
 
     public LocalDate getDateEmbauche() {
         return dateEmbauche;
@@ -94,7 +85,10 @@ public class Employe {
         return Objects.hash(nrINSEE, nom);
     }
 
-    public static Comparator<Employe> getComparatorNomInsee() {
-        return comparatorNomInsee;
+
+    @Override
+    public int compareTo(Employe e) {
+        int i;
+        return (i = nom.compareTo(e.nom)) != 0 ? i : e.nrINSEE.compareTo(nrINSEE);
     }
 }

@@ -21,9 +21,9 @@ public class EntrepriseTest extends BaseTest {
         inc = new Entreprise();
         employes = getAttribute(inc, "lePersonnel");
         ajouterEmployes(
-            creerEmployeTest("1"),
-            creerEmployeTest("2"),
-            creerEmployeTest("3")
+                creerEmployeTest("1"),
+                creerEmployeTest("2"),
+                creerEmployeTest("3")
         );
     }
 
@@ -147,7 +147,7 @@ public class EntrepriseTest extends BaseTest {
         ajouterEmployes(e4, e5, e6);
 
         Collection<Employe> res = inc.getEmployesOrdonnes();
-        Collection<Employe> expected = new TreeSet<>(Employe.getComparatorNomInsee());
+        Collection<Employe> expected = new TreeSet<>(employes);
         expected.addAll(employes);
 
         assertTrue(containsReferences(res, e1, e2, e3, e5, e6));

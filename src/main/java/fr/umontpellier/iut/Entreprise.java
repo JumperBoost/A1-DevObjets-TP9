@@ -24,9 +24,7 @@ public class Entreprise {
     }
 
     public Collection<Employe> getEmployesOrdonnes() {
-        Set<Employe> employes = new TreeSet<>(Employe.getComparatorNomInsee());
-        employes.addAll(lePersonnel);
-        return employes;
+        return new TreeSet<>(getEmployesDansDesordre());
     }
 
     public Collection<Employe> getEmployesDansDesordre() {
